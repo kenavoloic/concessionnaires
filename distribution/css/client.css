@@ -1,0 +1,1130 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  margin: 0 auto;
+  font-size: 100%;
+}
+#racine {
+  width: 100%;
+  background: radial-gradient(lightgray, lightslategrey);
+  background-size: 0.25rem 0.25rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 10px;
+}
+nav {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 10px 1fr auto;
+  grid-gap: 5px;
+  padding: 0px 10px;
+}
+nav article.bandeau {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+nav article.bandeau h1 {
+  font-size: 2.25em;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #f6f6f6;
+  text-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+  cursor: pointer;
+  transition: text-shadow 125ms ease-out, color 250ms ease;
+}
+nav article.bandeau h1:hover {
+  color: #9a1d34;
+  text-shadow: 0px 0px 3px #f6f6f6, 1px 0px 2px rgba(32, 16, 32, 0.005);
+}
+nav article.bandeau section.alea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 1px;
+  border-radius: 6px;
+  border: 2px solid #9a1d34;
+  background-color: #f6f6f6;
+  box-shadow: 0px 0px 3px rgba(32, 16, 32, 0.008), 1px 0px 2px rgba(32, 16, 32, 0.0025);
+}
+nav article.bandeau section.alea label {
+  padding: 0 5px;
+}
+nav article.bandeau section.alea input[type="text"] {
+  font-size: 1em;
+  color: #9a1d34;
+  border: none;
+  text-align: center;
+}
+nav article.bandeau section.alea input[type="button"] {
+  font-size: 1em;
+  color: #201020;
+  border: none;
+  text-align: center;
+  padding: 0 4px;
+  transition: all 125ms ease;
+}
+nav article.bandeau section.alea input[type="button"]:hover {
+  color: #f6f6f6;
+  background: #9a1d34;
+  border-color: #f6f6f6;
+}
+nav ul.liens {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  font-family: sans-serif;
+  border-radius: 6px;
+  border: 3px solid #ffae0c;
+  background: radial-gradient(#1560f6, #2766e4);
+  background-size: 0.25rem 0.25rem;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+  user-select: none;
+}
+nav ul.liens a {
+  font-family: sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 3px;
+}
+nav ul.liens li {
+  list-style-type: none;
+  text-align: center;
+}
+nav ul.liens li > a.lienInactif {
+  color: #201020;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-shadow: 0px 0px 3px rgba(32, 16, 32, 0.008), 1px 0px 2px rgba(32, 16, 32, 0.0025);
+  letter-spacing: 0px;
+  transition: all 125ms ease-in-out;
+}
+nav ul.liens li > a.lienInactif:hover {
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+}
+nav ul.liens li > a.lienActif {
+  color: #ffffff;
+  border-radius: 6px;
+  border-color: transparent;
+  text-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+  letter-spacing: 1px;
+  transition: all 125ms ease-in-out;
+}
+nav ul.liens li > a.lienActif:hover {
+  color: #e42766;
+  text-shadow: none;
+  letter-spacing: 0;
+}
+nav article.ligne1 {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+nav article.bandeau {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+nav ul.liens#rubriques {
+  padding: 10px 10px;
+  border-color: #2766e4;
+  background: radial-gradient(#f6ab15, #f3bb4b);
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+nav ul.liens#enlaces {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+article.bilan .negatif {
+  border-color: #a80f2b;
+}
+article.bilan .positif {
+  border-color: green;
+}
+article.bilan div#h1 {
+  font-family: sans-serif;
+  color: #f6f6f6;
+  text-align: left;
+  margin: 2em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+}
+article.bilan div#h1 span#intitule {
+  font-family: sans-serif;
+  font-size: 1.5em;
+  margin-left: auto;
+}
+article.bilan div#h1 span#periode {
+  font-family: monospace, serif, sans-serif;
+  font-size: 2em;
+  margin-right: auto;
+  color: #f6f6f6;
+  text-shadow: -2px 3px 2px #4d4d4d, 1px -1px 0px #737373;
+  letter-spacing: -1px;
+  word-spacing: 1px;
+}
+article.bilan main.accueil {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5px;
+  padding: 0px 10px 15px 10px;
+  border-radius: 6px;
+}
+article.bilan main.accueil article.synthese {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 6px;
+  font-family: sans-serif;
+  background: #aeb6bf;
+  box-shadow: 0px 0px 3px #201020, 1px 0px 2px rgba(32, 16, 32, 0.005);
+  transition: all 125ms ease-in-out;
+  cursor: pointer;
+}
+article.bilan main.accueil article.synthese article {
+  border-radius: 0;
+  padding: 5px;
+  text-shadow: -2px 3px 2px #4d4d4d, 1px -1px 0px #737373;
+  color: #201020;
+}
+article.bilan main.accueil article.synthese article.haut {
+  color: #201020;
+  background: #f5f6f7;
+  text-shadow: 0px 0px 3px rgba(32, 16, 32, 0.008), 1px 0px 2px rgba(32, 16, 32, 0.0025);
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  transition: all 125ms ease-out;
+}
+article.bilan main.accueil article.synthese article.haut section.nom,
+article.bilan main.accueil article.synthese article.haut section.codePostal,
+article.bilan main.accueil article.synthese article.haut section.ville {
+  text-align: center;
+}
+article.bilan main.accueil article.synthese article.haut:hover {
+  color: #f6f6f6;
+  background: #2766e4;
+}
+article.bilan main.accueil article.synthese article.milieu {
+  background: #cad0d6;
+  text-shadow: none;
+  border: none;
+  border-top-color: #aeb6bf;
+  border-bottom-color: #aeb6bf;
+}
+article.bilan main.accueil article.synthese article.milieu section.clients,
+article.bilan main.accueil article.synthese article.milieu section.mensuel,
+article.bilan main.accueil article.synthese article.milieu section.stock,
+article.bilan main.accueil article.synthese article.milieu section.marques,
+article.bilan main.accueil article.synthese article.milieu section.nouveautes,
+article.bilan main.accueil article.synthese article.milieu section.occasions,
+article.bilan main.accueil article.synthese article.milieu section.types,
+article.bilan main.accueil article.synthese article.milieu section.motorisations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+article.bilan main.accueil article.synthese article.milieu section.clients {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+article.bilan main.accueil article.synthese article.milieu section.mensuel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+article.bilan main.accueil article.synthese article.milieu section.mensuel div.nombre.positif {
+  color: green;
+}
+article.bilan main.accueil article.synthese article.milieu section.mensuel div.nombre.negatif {
+  color: #9a1d34;
+}
+article.bilan main.accueil article.synthese article.bas {
+  background: #e1e4e8;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  text-shadow: none;
+}
+article.bilan main.accueil article.synthese article.bas section.clients,
+article.bilan main.accueil article.synthese article.bas section.mensuel,
+article.bilan main.accueil article.synthese article.bas section.stock,
+article.bilan main.accueil article.synthese article.bas section.marques,
+article.bilan main.accueil article.synthese article.bas section.nouveautes,
+article.bilan main.accueil article.synthese article.bas section.occasions,
+article.bilan main.accueil article.synthese article.bas section.types,
+article.bilan main.accueil article.synthese article.bas section.motorisations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+article.bilan main.accueil article.synthese article.bas section.stock {
+  padding-bottom: 10px;
+}
+main.concessionnaire {
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 10px;
+}
+main.concessionnaire article.titre {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-content: start;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: left;
+  color: #f6f6f6;
+  text-shadow: -2px 3px 2px #4d4d4d, 1px -1px 0px #737373;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  user-select: none;
+}
+main.concessionnaire article.titre section.nom {
+  font-size: 2em;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+main.concessionnaire article.titre section.ville {
+  font-size: 1em;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  margin-left: 1em;
+}
+main.concessionnaire article.titre {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+main.concessionnaire article.identite section.titulo,
+main.concessionnaire article.fournisseurs section.titulo {
+  font-size: 1.25em;
+  color: #f0a91b;
+  background: #3e76e7;
+  border-color: #f0a91b;
+  font-family: sans-serif;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 5px 0 2px 0;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  cursor: default;
+  overflow: auto;
+  transition: all 125ms ease-in-out;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+main.concessionnaire article.identite section.titulo:hover,
+main.concessionnaire article.fournisseurs section.titulo:hover {
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+}
+main.concessionnaire article.identite article.voirIdentite {
+  border: 3px solid #2766e4;
+  border-radius: 6px;
+  color: #201020;
+  text-shadow: none;
+  margin-top: 1em;
+}
+main.concessionnaire article.identite article.voirIdentite dl {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 0.85em;
+  padding: 10px 10px;
+  background: #f6f6f6;
+  border-radius: 6px;
+}
+main.concessionnaire article.identite article.voirIdentite dl dt.ape,
+main.concessionnaire article.identite article.voirIdentite dl dt.coordonnees,
+main.concessionnaire article.identite article.voirIdentite dl dt.gerance {
+  color: #f0a91b;
+  margin-top: 5px;
+}
+main.concessionnaire article.identite article.voirIdentite dl dt.nom {
+  font-weight: bold;
+  font-size: 1em;
+  color: #2766e4;
+  margin-bottom: 5px;
+}
+main.concessionnaire article.identite article.cacherIdentite {
+  display: none;
+}
+main.concessionnaire article.fournisseurs {
+  grid-column-start: 1;
+  grid-column-end: 13;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs {
+  display: grid;
+  grid-template-columns: 10px 1fr 10px 1fr 10px;
+  grid-template-rows: 1em 1fr 1em;
+  color: #201020;
+  background: #cad0d6;
+  border: 3px solid #2766e4;
+  border-radius: 6px;
+  margin: 1em 0 2em 0;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs dl {
+  font-family: sans-serif;
+  font-size: 1em;
+  color: #201020;
+  padding: 5px 5px 10px 5px;
+  background: #f6f6f6;
+  border: 3px solid #f0a91b;
+  border-radius: 6px;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs dl dt {
+  color: #f6f6f6;
+  background: #2766e4;
+  font-weight: normal;
+  text-shadow: none;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs dl dd {
+  color: #201020;
+  background: #f6f6f6;
+  text-shadow: none;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs section.liste {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  overflow-y: auto;
+  height: 20em;
+  cursor: pointer;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs section.liste dl dt span.dxcode {
+  display: inline-block;
+  background: #f2b233;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs section.liste dl dd span.code {
+  display: inline-block;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs section.liste dl dd span.code:hover {
+  color: #f6f6f6;
+  background: #2766e4;
+}
+main.concessionnaire article.fournisseurs article.voirFournisseurs section.details {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main.concessionnaire article.fournisseurs article.cacherFournisseurs {
+  display: none;
+}
+main.concessionnaire article.ventes {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 2em 2em 1fr;
+  grid-gap: 5px;
+  background: #d8d8d8;
+  padding: 10px;
+  border-radius: 6px;
+  border: 3px solid #2766e4;
+}
+main.concessionnaire article.ventes dl.informationsClient {
+  font-size: 0.8em;
+  font-family: sans-serif;
+  color: #201020;
+  border: 3px solid #2766e4;
+  border-radius: 6px;
+  background: #f6f6f6;
+  padding: 1em 10px;
+  display: block;
+  max-height: 12em;
+}
+main.concessionnaire article.ventes dl.informationsClient dt {
+  font-size: 1em;
+  text-align: center;
+  background: #2766e4;
+  color: #f6f6f6;
+  padding: 5px;
+  margin-bottom: 0.5em;
+}
+main.concessionnaire article.ventes dl.informationsClient dd {
+  word-wrap: break-word;
+  text-align: left;
+}
+main.concessionnaire article.ventes dl.informationsClient dd.date {
+  text-align: center;
+  margin-bottom: 3px;
+}
+main.concessionnaire article.ventes dl.informationsClient dd.personne,
+main.concessionnaire article.ventes dl.informationsClient dd.courriel,
+main.concessionnaire article.ventes dl.informationsClient dd.ville,
+main.concessionnaire article.ventes dl.informationsClient dd.adresse {
+  text-align: left;
+  margin-bottom: 3px;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes {
+  font-size: 1em;
+  color: #201020;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: sans-serif;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes dt.titre {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 1.25em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px #2766e4;
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+  margin-right: 1em;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes dt.annuel,
+main.concessionnaire article.ventes dl.quantitatif#idVentes dt.mensuel,
+main.concessionnaire article.ventes dl.quantitatif#idVentes dt.neufs,
+main.concessionnaire article.ventes dl.quantitatif#idVentes dt.occasions {
+  margin-right: 0.25em;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes dd,
+main.concessionnaire article.ventes dl.quantitatif#idVentes dd.vert {
+  color: green;
+  margin-right: 1em;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes dd.rouge {
+  color: #9a1d34;
+}
+main.concessionnaire article.ventes dl.quantitatif#idVentes {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main.concessionnaire article.ventes article.btns,
+main.concessionnaire article.ventes article.btnsInactifs {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main.concessionnaire article.ventes table.tableauVentes {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+main.concessionnaire article.ventes dl.informationsClient {
+  grid-column-start: 8;
+  grid-column-end: 11;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+main.concessionnaire article.ventes dl#idVentes {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main.concessionnaire article.stock {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 2em 2em 1fr;
+  grid-gap: 5px;
+  background: #d8d8d8;
+  padding: 10px;
+  border-radius: 6px;
+  border: 3px solid #2766e4;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock {
+  font-size: 1em;
+  font-family: sans-serif;
+  color: #201020;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.titre {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 1.25em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px #2766e4;
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+  margin-right: 1em;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.annuel,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.mensuel,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.neufs,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.occasions,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.types,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.motorisations,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.marques,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dt.types {
+  margin-right: 0.25em;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock dd,
+main.concessionnaire article.stock dl.quantitatif#bilanStock dd.vert {
+  color: green;
+  margin-right: 1em;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock dd.rouge {
+  color: #9a1d34;
+}
+main.concessionnaire article.stock dl.quantitatif#bilanStock {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main.concessionnaire article.stock article.btns,
+main.concessionnaire article.stock article.btnsInactifs {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main.concessionnaire article.stock table.tableauStock {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+main.concessionnaire h1 {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main.concessionnaire article.identite {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main.concessionnaire article.fournisseurs {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+main.concessionnaire article.ventes {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+main.concessionnaire article.stock {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+article.btns,
+article.btnsInactifs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+article.btns button,
+article.btnsInactifs button {
+  font-size: 1em;
+  font-family: sans-serif;
+  font-weight: bold;
+  height: 1.5em;
+  width: 3em;
+  border-radius: 3px;
+  background: #2766e4;
+  color: #f6f6f6;
+  border-color: #f6f6f6;
+}
+article.btns button.decrement,
+article.btnsInactifs button.decrement {
+  margin: 0 5px 0 0;
+}
+article.btns button.increment,
+article.btnsInactifs button.increment {
+  margin: 0 5px;
+}
+article.btns input[type='text'].compteur,
+article.btnsInactifs input[type='text'].compteur,
+article.btns input[type='text'].pagination,
+article.btnsInactifs input[type='text'].pagination {
+  font-family: monospace;
+  background: #3e76e7;
+  color: #f6f6f6;
+  text-align: center;
+  border-radius: 3px;
+  width: 6em;
+}
+article.btns label,
+article.btnsInactifs label {
+  height: 1.5em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin-left: 1em;
+  margin-right: 5px;
+}
+article.btnsInactifs button {
+  background: #999999;
+}
+article.btnsInactifs input[type="text"].pagination {
+  background: #999999;
+}
+table.tableauVentes,
+table.tableauStock,
+table.tableauGerants {
+  border: 1px solid #2766e4;
+  border-radius: 6px;
+  background-color: #eeeeee;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 1em;
+  font-family: sans-serif;
+}
+table.tableauVentes thead,
+table.tableauStock thead,
+table.tableauGerants thead {
+  background: #2766e4;
+}
+table.tableauVentes thead th,
+table.tableauStock thead th,
+table.tableauGerants thead th {
+  font-weight: bold;
+  color: #ffffff;
+  border-left: 2px solid #547aea;
+  text-align: center;
+}
+table.tableauVentes thead th.th_numero,
+table.tableauStock thead th.th_numero,
+table.tableauGerants thead th.th_numero,
+table.tableauVentes thead th.th_client,
+table.tableauStock thead th.th_client,
+table.tableauGerants thead th.th_client,
+table.tableauVentes thead th.th_marque,
+table.tableauStock thead th.th_marque,
+table.tableauGerants thead th.th_marque,
+table.tableauVentes thead th.th_type,
+table.tableauStock thead th.th_type,
+table.tableauGerants thead th.th_type,
+table.tableauVentes thead th.th_motorisation,
+table.tableauStock thead th.th_motorisation,
+table.tableauGerants thead th.th_motorisation,
+table.tableauVentes thead th.th_km,
+table.tableauStock thead th.th_km,
+table.tableauGerants thead th.th_km,
+table.tableauVentes thead th.th_annee,
+table.tableauStock thead th.th_annee,
+table.tableauGerants thead th.th_annee,
+table.tableauVentes thead th.th_stock,
+table.tableauStock thead th.th_stock,
+table.tableauGerants thead th.th_stock,
+table.tableauVentes thead th,
+table.tableauStock thead th,
+table.tableauGerants thead th {
+  font-weight: bold;
+  color: #ffffff;
+  border-left: 2px solid #547aea;
+  text-align: center;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+}
+table.tableauVentes thead th.th_numero:hover,
+table.tableauStock thead th.th_numero:hover,
+table.tableauGerants thead th.th_numero:hover,
+table.tableauVentes thead th.th_client:hover,
+table.tableauStock thead th.th_client:hover,
+table.tableauGerants thead th.th_client:hover,
+table.tableauVentes thead th.th_marque:hover,
+table.tableauStock thead th.th_marque:hover,
+table.tableauGerants thead th.th_marque:hover,
+table.tableauVentes thead th.th_type:hover,
+table.tableauStock thead th.th_type:hover,
+table.tableauGerants thead th.th_type:hover,
+table.tableauVentes thead th.th_motorisation:hover,
+table.tableauStock thead th.th_motorisation:hover,
+table.tableauGerants thead th.th_motorisation:hover,
+table.tableauVentes thead th.th_km:hover,
+table.tableauStock thead th.th_km:hover,
+table.tableauGerants thead th.th_km:hover,
+table.tableauVentes thead th.th_annee:hover,
+table.tableauStock thead th.th_annee:hover,
+table.tableauGerants thead th.th_annee:hover,
+table.tableauVentes thead th.th_stock:hover,
+table.tableauStock thead th.th_stock:hover,
+table.tableauGerants thead th.th_stock:hover,
+table.tableauVentes thead th:hover,
+table.tableauStock thead th:hover,
+table.tableauGerants thead th:hover {
+  background: #9a1d34;
+}
+table.tableauVentes td,
+table.tableauStock td,
+table.tableauGerants td,
+table.tableauVentes th,
+table.tableauStock th,
+table.tableauGerants th {
+  border: 1px solid #547aea;
+  padding: 3px 2px;
+}
+table.tableauVentes tbody tr,
+table.tableauStock tbody tr,
+table.tableauGerants tbody tr {
+  background: inherit;
+  color: inherit;
+  cursor: inherit;
+  transition: background 250ms ease-in-out, color 250ms ease;
+}
+table.tableauVentes tbody tr:hover,
+table.tableauStock tbody tr:hover,
+table.tableauGerants tbody tr:hover {
+  color: #f6f6f6;
+  background: #2766e4;
+  cursor: pointer;
+}
+table.tableauVentes tbody td,
+table.tableauStock tbody td,
+table.tableauGerants tbody td {
+  font-size: 0.8em;
+  text-align: center;
+  text-transform: capitalize;
+}
+table.tableauStock tbody tr:hover {
+  color: #f6f6f6;
+  background: #2766e4;
+  cursor: default;
+}
+table.tableauGerants tbody tr:hover {
+  color: #f6f6f6;
+  background: #2766e4;
+  cursor: default;
+}
+table.tableauGerants tbody td {
+  text-align: left;
+}
+table.tableauGerants tbody td.rang,
+table.tableauGerants td.total,
+table.tableauGerants td.mensuel,
+table.tableauGerants td.neufs,
+table.tableauGerants td.occasions,
+table.tableauGerants td.dpt {
+  text-align: center;
+}
+table.tableauGerants tbody td.entreprise {
+  transition: all 125ms ease-in-out;
+}
+table.tableauGerants tbody td.entreprise:hover {
+  color: #f6f6f6;
+  background: #f0a91b;
+  text-align: center;
+  cursor: pointer;
+}
+article.gerants {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 2em 1fr;
+  grid-gap: 5px;
+  background: #d8d8d8;
+  padding: 10px;
+  border-radius: 6px;
+  border: 3px solid #2766e4;
+  margin: 0 10px;
+}
+article.gerants h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 1.25em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px #2766e4;
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+}
+article.gerants table.tableauGerants {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main.analytiques {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: minmax(1.5em, 2.25em) auto 1fr 1fr;
+  gap: 20px 5px;
+  background: #d8d8d8;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 6px;
+  border: 3px solid #2766e4;
+}
+main.analytiques h1 span {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 1.25em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px #2766e4;
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+}
+main.analytiques h1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main.analytiques section.titulo {
+  font-size: 1.25em;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+  color: #f0a91b;
+  background: #3e76e7;
+  border: 2px solid #f0a91b;
+  border-radius: 6px;
+  cursor: default;
+  padding: 10px 0;
+  margin: 0.125em 0 0.25em 0;
+}
+main.analytiques div.item,
+main.analytiques div.items,
+main.analytiques div.itemsTitre,
+main.analytiques div.rubriqueItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border-width: 2px;
+  border: 2px solid #f0a91b;
+  background: #ffffff;
+  font-family: sans-serif;
+  font-size: 1em;
+}
+main.analytiques div.item div.intitule,
+main.analytiques div.items div.intitule,
+main.analytiques div.itemsTitre div.intitule,
+main.analytiques div.rubriqueItem div.intitule {
+  color: #201020;
+}
+main.analytiques div.item div.rubriqueIntitule,
+main.analytiques div.items div.rubriqueIntitule,
+main.analytiques div.itemsTitre div.rubriqueIntitule,
+main.analytiques div.rubriqueItem div.rubriqueIntitule {
+  color: #ffffff;
+}
+main.analytiques div.item div.rubriqueValeur,
+main.analytiques div.items div.rubriqueValeur,
+main.analytiques div.itemsTitre div.rubriqueValeur,
+main.analytiques div.rubriqueItem div.rubriqueValeur {
+  color: #ffffff;
+}
+main.analytiques div.item div.terme,
+main.analytiques div.items div.terme,
+main.analytiques div.itemsTitre div.terme,
+main.analytiques div.rubriqueItem div.terme {
+  color: #201020;
+  text-transform: capitalize;
+}
+main.analytiques div.item div.titre,
+main.analytiques div.items div.titre,
+main.analytiques div.itemsTitre div.titre,
+main.analytiques div.rubriqueItem div.titre {
+  color: inherit;
+  background: inherit;
+}
+main.analytiques div.item div.unite,
+main.analytiques div.items div.unite,
+main.analytiques div.itemsTitre div.unite,
+main.analytiques div.rubriqueItem div.unite {
+  color: #399f06;
+}
+main.analytiques div.item div.valeur,
+main.analytiques div.items div.valeur,
+main.analytiques div.itemsTitre div.valeur,
+main.analytiques div.rubriqueItem div.valeur {
+  color: #008000;
+}
+main.analytiques div.item div.valeur.rouge,
+main.analytiques div.items div.valeur.rouge,
+main.analytiques div.itemsTitre div.valeur.rouge,
+main.analytiques div.rubriqueItem div.valeur.rouge {
+  color: #9a1d34;
+  padding-left: 10px;
+}
+main.analytiques div.itemsTitre {
+  color: #000000;
+  background: #b6f298;
+}
+main.analytiques div.rubriqueItem {
+  color: #f0a91b;
+  background: #547aea;
+}
+main.analytiques div.listeItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 5px 5px;
+  margin: 0.25em 0.15em 0.3em 0.15em;
+}
+main.analytiques section.rubrique {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 0.35em 0 0.2em 0;
+  gap: 0px 5px;
+}
+main.analytiques section.ligne {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 0.125em 0 0.125em 0;
+  gap: 0px 5px;
+}
+main.analytiques section.ligne#nombre,
+main.analytiques section.ligne#objectif,
+main.analytiques section.ligne#localisation {
+  gap: 10px 5px;
+}
+main.analytiques section.ligneTriple {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+main.analytiques article.concessions,
+main.analytiques article.ventes,
+main.analytiques article.stock {
+  border: 3px solid #2766e4;
+  border-radius: 6px;
+  padding: 2px;
+  grid-column-start: 1;
+  grid-column-end: 11;
+}
+main.analytiques article.concessions {
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+footer {
+  padding: 10px 10px;
+  margin: 5px 10px 10px 10px;
+  background: #d0d5da;
+  border-radius: 6px;
+  border: 3px solid #2766e4;
+  user-select: none;
+}
+footer article.basDePage {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 5px;
+  background: #d8d8d8;
+  border-radius: 6px;
+}
+footer article.basDePage div.titre {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #2766e4;
+  border: 2px solid #f0a91b;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+footer article.basDePage div.ville {
+  color: #f0a91b;
+  background: #3e76e7;
+  border-color: #f0a91b;
+  font-family: sans-serif;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 5px 0 2px 0;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  overflow: auto;
+  transition: all 125ms ease-in-out;
+}
+footer article.basDePage div.ville:hover {
+  color: #2766e4;
+  background: #f0a91b;
+  border-color: #2766e4;
+}
+footer article.basDePage div.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 3px;
+  border-radius: 6px;
+  border-width: 2px;
+  border: 2px solid #f0a91b;
+  padding: 5px 2px 2px 2px;
+  overflow: auto;
+  background: #ffffff;
+}
+footer article.basDePage div.item div.intitule,
+footer article.basDePage div.item div.valeur {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+footer article.basDePage div.item div.intitule {
+  color: #201020;
+}
+footer article.basDePage div.item div.valeur {
+  color: green;
+}
+footer article.basDePage section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 2em;
+  gap: 10px;
+}
+
+
+/*# sourceMappingURL=client.css.map*/

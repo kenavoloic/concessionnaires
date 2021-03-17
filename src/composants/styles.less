@@ -1,0 +1,1286 @@
+//@couleur: green;//blue;//dodgerblue;//steelblue;//#2766e4;
+@couleur: #2766e4;
+
+@clair1: lighten(spin(@couleur, 5), 10%);
+@clair2: lighten(spin(@couleur, 10), 20%);
+@fonce1: darken(spin(@couleur, -5), 10%);
+@fonce2: darken(spin(@couleur, -10), 20%);
+
+@complementaire: saturate(spin(@couleur, 180), 10%);
+@secondaire: spin(@couleur, -(360/3));
+@tertiaire: spin(@couleur, (360/3));
+@noir: #201020;
+@rouge: #9a1d34;
+
+@blanc: #f6f6f6;
+@blancFFF: #ffffff;
+@gris: #737373;
+@gris2: #d8d8d8;
+@gris3: #aeb6bf;
+@gris3a: lighten(@gris3, 25%);
+@gris3b: lighten(@gris3, 10%);
+@gris3c: lighten(@gris3, 18%);
+
+@vert: green;
+@negatif: @rouge;
+@positif: @vert;
+@jaune: #e1e23b;
+@orange: #f7941e;
+@couleurTexture: @couleur;
+
+@fondTableauEntete: @couleur;
+@fondTableau:#eeeeee;
+@couleurTableau:@blancFFF;
+
+@bodyFond: #f0f0f0;
+@fondEntete: @vert;
+@fondNav: lighten(@fondTableauEntete,20%);
+@fondAlea: @blanc;
+@fondDecalage: @blanc;
+
+@ombre1a: @noir;
+@ombre1b: fade(@noir, .5);
+@ombre1: 0px 0px 3px @ombre1a, 1px 0px 2px @ombre1b;
+
+@ombre2a: fade(@noir,.8);
+@ombre2b: fade(@noir, .25);
+@ombre2: 0px 0px 3px @ombre2a, 1px 0px 2px @ombre2b;
+
+@ombre3: -2px 3px 2px #4d4d4d;
+@ombre4: 0px 0px 3px @blanc, 1px 0px 2px fade(@noir, .5);
+@ombre5: -2px 3px 2px #4d4d4d, 1px -1px 0px @gris;
+@ombre6: -1px 2px 1px #ffffff;
+
+@texture2: radial-gradient(lightgray, lightslategrey);
+@texture3: radial-gradient(saturate(@couleurTexture, 15%), @couleurTexture);
+@texture4: radial-gradient(gainsboro, ghostwhite);
+@texture5: radial-gradient(saturate(@complementaire, 5%), lighten(@complementaire,10%));
+
+@textureNav: @texture3;
+@textureNav2: @texture5;
+@textureRacine: @texture2;
+@textureBasDePage: @texture4;
+@textureTaille: 0.25rem 0.25rem;
+
+@bordure1: 6px;
+@bordure2: 2px;
+@separateur:.75em;
+@mouvement:all 125ms ease-in-out;
+
+.rubrique(){
+    font-family:sans-serif;
+    font-weight:normal;
+    font-size:1.25em;
+    text-align:center;
+    border-radius:@bordure1;
+    padding:4px 8px;
+    text-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 2px @couleur;
+
+    color:@couleur;
+    background:@complementaire;
+    border-color:@couleur;    
+}
+
+
+.intitule(){
+    color:@complementaire;
+    background: lighten(@couleur,5%);
+    border-color:@complementaire;
+    font-family:sans-serif;
+    text-align:center;
+    text-transform: capitalize;
+    padding:5px 0 2px 0;
+    border-radius: 6px;
+    border-width:2px;
+    border-style:solid;
+
+    cursor:default;
+    overflow:auto;
+    transition:@mouvement;
+    &:hover {
+	color:@couleur;
+	background:@complementaire;
+	border-color:@couleur;
+    }
+}
+
+.intituleAnalyse(){
+    color:@complementaire;
+    background: lighten(@couleur,5%);
+    border-color:@complementaire;
+    font-family:sans-serif;
+    text-align:center;
+    text-transform: capitalize;
+    padding:5px 0 2px 0;
+    border-radius: 6px;
+    border-width:2px;
+    border-style:solid;
+
+    cursor:pointer;
+    overflow:auto;
+}
+
+*, *::before, *::after {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    font-size:100%;
+}
+
+body {
+    margin: 0 auto;
+    font-size:100%;
+}
+
+#racine {
+    width: 100%;
+    background: @textureRacine;
+    background-size: @textureTaille;
+    display:grid;
+    grid-auto-flow: row;
+    grid-gap:10px;
+}
+
+nav {
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 10px 1fr auto;
+    grid-gap:5px;
+    padding:0px 10px;
+
+
+    article.bandeau {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	user-select:none;
+
+	h1 {
+	    font-size:2.25em;
+	    font-family:sans-serif;
+	    letter-spacing:1px;
+	    color:@blanc;
+	    text-shadow: @ombre1;
+	    cursor:pointer;
+	    transition: text-shadow 125ms ease-out, color 250ms ease;
+	    &:hover {
+		color: @rouge;
+		text-shadow: @ombre4;
+	    }
+	}
+
+	section.alea {
+
+	    display:flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: center;
+
+	    font-family:sans-serif;
+
+	    padding:1px;
+	    border-radius:@bordure1;
+	    border:2px solid @rouge;
+	    background-color: @fondAlea;
+	    box-shadow: @ombre2;
+
+	    label {
+		padding:0 5px;
+	    }
+
+	    input[type="text"] {
+		font-size: 1em;
+		color: @rouge;
+		border:none;
+		text-align:center;
+	    }
+
+	    input[type="button"] {
+		font-size: 1em;
+		color: @noir;
+		border:none;
+		text-align:center;
+		padding: 0 4px;
+		transition: all 125ms ease;
+		&:hover {
+		    color:  @blanc;
+		    background: @rouge; 
+		    border-color: @blanc;
+		}
+	    }
+	}
+    }
+
+    
+    ul.liens {
+
+	display:grid;
+	grid-gap: 5px;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	font-family: sans-serif;
+	border-radius: @bordure1;
+	border:3px solid saturate(@complementaire,15%);
+
+	background: @textureNav;
+	background-size: @textureTaille;
+	padding:20px 10px;
+	box-shadow: @ombre1;
+
+	user-select:none;
+
+	a {
+	    font-family:sans-serif;
+	    font-size:1em;
+	    text-decoration:none;
+	    padding:3px;
+	}
+	
+	li {
+	    list-style-type: none;
+	    text-align:center;
+
+	    & > a.lienInactif {
+		color: @noir;
+		border-radius:@bordure1;
+		border:1px solid transparent;
+		text-shadow: @ombre2;
+		letter-spacing: 0px;
+		transition: all 125ms ease-in-out;
+		&:hover {
+		    color:@blancFFF;
+		    letter-spacing:1px;
+		    text-shadow: @ombre1;
+		}
+	    }
+
+	    & > a.lienActif {
+		color:@blancFFF;
+		border-radius:@bordure1;
+		border-color: transparent;
+		text-shadow: @ombre1;
+		letter-spacing:1px;
+		transition: all 125ms ease-in-out;
+		&:hover {
+		    color:@tertiaire;
+		    text-shadow:none;
+		    letter-spacing: 0;
+		}
+	    }
+	}
+
+    }
+
+    article.ligne1 {
+	grid-column-start: 1;
+	grid-column-end: 11;
+	grid-row-start: 2;
+	grid-row-end: 3;
+    }
+
+    article.bandeau {
+	grid-column-start: 1;
+	grid-column-end: 11;
+	grid-row-start: 2;
+	grid-row-end: 3;
+    }
+
+    
+    ul.liens#rubriques {
+
+	padding:10px 10px;
+	border-color:@couleur;
+	background: @textureNav2;
+
+	grid-column-start: 1;
+	grid-column-end: 11;
+	grid-row-start: 3;
+	grid-row-end: 4;
+
+    }
+
+    ul.liens#enlaces {
+	grid-column-start: 1;
+	grid-column-end: 11;
+	grid-row-start: 4;
+	grid-row-end: 5;
+
+    }
+}
+
+article.bilan {
+
+    .negatif {
+	border-color: saturate(@rouge, 15%);
+    }
+    .positif {
+	border-color: @positif;
+    }
+
+    div#h1 {
+	font-family:sans-serif;
+	color:@blanc;
+	text-align:left;
+	margin: 2em 1em;
+	display:flex;
+	flex-direction:row;
+	justify-content: flex-start;
+	align-items: center;
+	text-shadow: @ombre1;
+
+	span#intitule {
+	    font-family:sans-serif;
+	    font-size:1.5em;
+	    margin-left: auto;
+	}
+	span#periode {
+	    font-family: monospace, serif, sans-serif;
+	    color:@blanc;
+	    font-size:2em;
+	    margin-right:auto;
+	    color: @blanc;
+	    text-shadow:@ombre5;
+	    letter-spacing:-1px;
+	    word-spacing: 1px;
+	}
+    }
+
+    main.accueil {
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap:5px;
+	padding: 0px 10px 15px 10px;
+	border-radius: @bordure1;
+
+	article.synthese {
+	    display:flex;
+	    flex-direction:column;
+	    justify-content: center;
+	    padding:0;
+	    border-width:3px;
+	    border-style:solid;
+	    border-radius: @bordure1;
+	    font-family: sans-serif;
+	    background: @gris3;
+	    box-shadow: @ombre1;
+	    transition: all 125ms ease-in-out;
+	    cursor: pointer;
+	    
+	    article {
+		border-radius: 0;
+		padding:5px;
+		text-shadow: @ombre5;
+		color: @noir;
+	    }
+
+	    article.haut {
+		color: @noir;
+		background:@gris3a;
+		text-shadow: @ombre2;
+		border-top-right-radius: @bordure2;
+		border-top-left-radius: @bordure2;
+		transition: all 125ms ease-out;
+
+		section.nom, section.codePostal, section.ville {
+		    text-align:center;
+		}
+		&:hover {
+		    color:@blanc;
+		    background: @couleurTexture;
+		}
+	    }
+
+	    article.milieu {
+		background:@gris3b;
+		text-shadow: none;
+		border:none;
+		border-top-color: @gris3;
+		border-bottom-color: @gris3;
+
+		section.clients, section.mensuel, section.stock,
+		section.marques, section.nouveautes, section.occasions,
+		section.types, section.motorisations {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content: space-between;
+		}
+
+		section.clients {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content: space-between;
+		    padding-bottom:10px;
+
+		    div.intitule {
+		    }
+		}
+		section.mensuel {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content: space-between;
+		    div.intitule {
+		    }
+		    div.nombre {
+			&.positif {
+			    color:@positif;
+			}
+			&.negatif {
+			    color:@negatif;
+			}
+		    }
+
+		}
+	    }
+
+	    article.bas {
+		background: @gris3c;
+		border-bottom-left-radius: @bordure2;
+		border-bottom-right-radius: @bordure2;
+		text-shadow: none;
+		section.clients, section.mensuel, section.stock,
+		section.marques, section.nouveautes, section.occasions,
+		section.types, section.motorisations {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content: space-between;
+		}
+
+		section.stock {
+		    padding-bottom:10px;
+		}
+
+	    }
+
+	}
+	// article.__synthese:hover {
+	//     color:@blanc;
+	//     background: @fondTableauEntete;
+	// }
+    }
+}
+
+main.concessionnaire {
+    padding:0 10px;    
+
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto;
+    grid-gap:10px;
+
+    article.titre {
+	display:flex;
+	flex-direction:row;
+	justify-content: start;
+	align-content: start;
+	align-items: center;
+
+	font-family:sans-serif;
+	text-align:left;
+	color: @blanc;
+	text-shadow:@ombre5;
+	letter-spacing:1px;
+	word-spacing: 1px;
+
+	user-select:none;
+
+	section.nom {
+	    font-size:2em;
+	    letter-spacing:1px;
+	    word-spacing: 1px;	    
+	}
+	section.ville {
+	    font-size:1em;
+	    letter-spacing:0px;
+	    word-spacing: 0px;
+	    margin-left:1em;
+	}
+    }
+
+    article.titre {
+	grid-column-start: 1;
+	grid-column-end: 12;	
+    }
+
+    
+    article.identite, article.fournisseurs {
+	section.titulo {
+	    font-size: 1.25em;
+	    .intitule();
+	    grid-column-start: 1;
+	    grid-column-end: 3;	
+	}
+    }
+
+    article.identite {
+
+	article.voirIdentite {
+	    border: 3px solid @fondTableauEntete;
+	    border-radius: @bordure1;
+
+	    color: @noir;
+	    text-shadow: none;
+	    margin-top:1em;
+
+
+	    dl {
+		font-family: sans-serif;
+		font-weight:normal;
+		font-size:0.85em;
+		padding:10px 10px;
+		background: @blanc;
+		border-radius: @bordure1;
+
+		dt.ape, dt.coordonnees, dt.gerance {
+		    color:@complementaire;
+		    margin-top:5px;
+		}
+
+		dt.nom {
+		    font-weight:bold;
+		    font-size:1em;
+		    color:@couleur;
+		    margin-bottom:5px;
+		}
+
+		dd.adresse, dd.gerant {
+		}
+	    }
+	}
+
+	article.cacherIdentite {
+	    display:none;
+	}
+    }
+    
+
+    article.fournisseurs {
+
+	grid-column-start: 1;
+	grid-column-end: 13;	
+
+
+	article.voirFournisseurs {
+	    display:grid;
+	    grid-template-columns: 10px 1fr 10px 1fr 10px;
+	    grid-template-rows:1em 1fr 1em;
+	    color:@noir;
+	    background: @gris3b;
+	    border: 3px solid @couleur;
+	    border-radius: @bordure1;
+	    margin:1em 0 2em 0;
+
+	    dl {
+		font-family: sans-serif;
+		font-size:1em;
+		color:@noir;
+		padding:5px 5px 10px 5px;
+		background:@blanc;
+		border:3px solid @complementaire;
+		border-radius:@bordure1;
+
+		dt {
+		    color:@blanc;
+		    background:@couleur;
+		    font-weight:normal;
+		    text-shadow: none;
+		}
+
+		dd {
+		    color:@noir;
+		    background:@blanc;
+		    text-shadow: none;
+		}
+	    }
+
+	    section.liste {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start:2;
+		grid-row-end: 3;
+		overflow-y: auto;
+		height:20em;
+		cursor:pointer;
+
+		dl {
+		    dt {
+			span.dxcode {
+			    display:inline-block;
+			    background:lighten(@complementaire, 5%);
+			}
+		    }
+		    dd{
+			span.code {
+			    display:inline-block;
+			    &:hover {
+				color:@blanc;
+				background:@couleur;
+			    }
+			}
+			span.nom {
+
+			}
+		    }
+		}
+	    }
+
+	    section.details {
+		grid-column-start: 4;
+		grid-column-end: 5;
+		grid-row-start:2;
+		grid-row-end: 3;
+	    }
+	}
+
+	article.cacherFournisseurs {
+	    display:none;
+	}
+    }
+
+    article.ventes {
+
+	display:grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: 2em 2em 1fr;
+	grid-gap: 5px;
+	background: @gris2;
+	padding:10px;
+	border-radius: @bordure1;
+	border: 3px solid  @fondTableauEntete;
+
+	dl.informationsClient {
+	    font-size:0.8em;
+	    font-family: sans-serif;
+	    color:@noir;
+	    border: 3px solid @fondTableauEntete;
+	    border-radius: @bordure1;
+	    background: @blanc;
+	    padding:1em 10px;
+	    display:block;
+	    max-height:12em;
+
+	    dt {
+		font-size:1em;
+
+		text-align:center;
+		background: @fondTableauEntete;
+		color:@blanc;
+		padding:5px;
+		margin-bottom:.5em;
+	    }
+	    dd {
+		word-wrap:break-word;
+		text-align:left;
+	    }
+
+	    dd.date {
+		text-align:center;
+		margin-bottom:3px;
+	    }
+
+	    dd.personne, dd.courriel, dd.ville, dd.adresse {
+		text-align:left;
+		margin-bottom:3px;
+	    }
+	}
+
+	dl.quantitatif#idVentes {
+	    font-size:1em;
+	    color:@noir;
+	    display:flex;
+	    flex-direction:row;
+	    align-items: center;
+	    font-family:sans-serif;
+	    dt.titre {
+		.rubrique();
+		margin-right: 1em;
+	    }
+	    dt.annuel, dt.mensuel, dt.neufs, dt.occasions {
+		margin-right:0.25em;
+	    }
+	    dd, dd.vert {
+		color: @vert;
+		margin-right:1em;
+	    }
+
+	    dd.rouge {
+		color: @rouge;
+	    }
+	}
+
+	dl.quantitatif#idVentes {
+	    grid-column-start: 1;
+	    grid-column-end: 6;
+	    grid-row-start: 1;
+	    grid-row-end: 2;
+	}
+
+	
+	
+	article.btns, article.btnsInactifs {
+	    grid-column-start: 1;
+	    grid-column-end: 6;
+	    grid-row-start: 2;
+	    grid-row-end: 3;
+	    
+	}
+
+	table.tableauVentes {
+	    grid-column-start: 1;
+	    grid-column-end: 8;
+	    grid-row-start: 3;
+	    grid-row-end: 4;
+	}
+
+	dl.informationsClient {
+	    grid-column-start: 8;
+	    grid-column-end: 11;
+	    grid-row-start: 3;
+	    grid-row-end: 6;
+
+	}
+
+	
+	dl#idVentes {
+	    grid-column-start: 9;
+	    grid-column-end: 11;
+	    grid-row-start: 1;
+	    grid-row-end: 2;
+
+	}
+    }
+
+    article.stock {
+	display:grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows:2em 2em 1fr;
+
+	grid-gap: 5px;
+	background: @gris2;
+	padding:10px;
+	border-radius: @bordure1;
+	border: 3px solid  @fondTableauEntete;
+
+	dl.quantitatif#bilanStock {
+	    font-size:1em;
+	    font-family: sans-serif;
+	    color:@noir;
+	    display:flex;
+	    flex-direction:row;
+	    align-items: center;
+	    dt.titre {
+		.rubrique();
+		margin-right: 1em;
+	    }
+	    dt.annuel, dt.mensuel, dt.neufs, dt.occasions, dt.types, dt.motorisations, dt.marques, dt.types {
+		margin-right:0.25em;
+	    }
+	    dd, dd.vert {
+		color: @vert;
+		margin-right:1em;
+	    }
+
+	    dd.rouge {
+		color:@rouge;
+	    }
+	}
+
+	dl.quantitatif#bilanStock {
+	    grid-column-start: 1;
+	    grid-column-end: 6;
+	    grid-row-start: 1;
+	    grid-row-end: 2;
+	}
+
+
+	article.btns, article.btnsInactifs {
+	    grid-column-start: 1;
+	    grid-column-end: 6;
+	    grid-row-start: 2;
+	    grid-row-end: 3;
+	    
+	}
+	table.tableauStock {
+	    grid-column-start: 1;
+	    grid-column-end: 8;
+	    grid-row-start: 3;
+	    grid-row-end: 4;
+	}
+    }
+
+    h1 {
+	grid-column-start:1;
+	grid-column-end: 6;
+	grid-row-start: 1;
+	grid-row-end: 2;	
+    }
+
+    article.identite {
+	grid-column-start:1;
+	grid-column-end: 9;
+	grid-row-start: 2;
+	grid-row-end: 3;	
+    }
+
+    article.fournisseurs {
+	grid-column-start:1;
+	grid-column-end: 9;
+	grid-row-start: 3;
+	grid-row-end: 4;	
+    }
+
+    article.ventes {
+	grid-column-start:1;
+	grid-column-end: 13;
+	grid-row-start: 4;
+	grid-row-end: 5;	
+    }
+
+    article.stock {
+	grid-column-start:1;
+	grid-column-end: 13;
+	grid-row-start: 5;
+	grid-row-end: 6;	
+    }
+
+}
+
+article.btns, article.btnsInactifs {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    
+    button {
+	font-size:1em;
+	font-family:sans-serif;
+	font-weight:bold;
+	height:1.5em;
+	width:3em;
+	border-radius:3px;
+	background: @fondTableauEntete;
+	color:@blanc;
+	border-color:@blanc;
+    }
+    
+    button.decrement {
+	margin:0 5px 0 0;
+    }
+
+    button.increment {
+	margin:0 5px;
+    }
+
+    
+    input[type='text'].compteur, input[type='text'].pagination {
+	font-family: monospace;
+	background: lighten(@fondTableauEntete,5%);
+	color:@blanc;
+	text-align:center;
+	border-radius:3px;
+	width:6em;
+    }
+    
+    label {
+	height:1.5em;
+	font-size: 1em;
+	font-family:sans-serif;
+	margin-left:1em;
+	margin-right:5px;
+    }
+}
+
+article.btnsInactifs {
+    button {
+	background: lighten(@gris, 15%);
+    }
+    input[type="text"].pagination {
+	background: lighten(@gris,15%);
+    }
+}
+
+table.tableauVentes, table.tableauStock, table.tableauGerants {
+
+    border:1px solid @fondTableauEntete;
+    border-radius:@bordure1;
+    background-color: @fondTableau;
+    text-align: left;
+    border-collapse: collapse;
+    font-size:1em;
+    font-family:sans-serif;
+    thead {
+	background:@fondTableauEntete;
+	th {
+	    font-weight: bold;
+	    color: @couleurTableau;
+	    border-left:2px solid @clair1;
+	    text-align:center;
+	}
+	th.th_numero, th.th_client, th.th_marque, th.th_type,
+	th.th_motorisation, th.th_km, th.th_annee, th.th_stock,
+	th{
+	    font-weight: bold;
+	    color: @couleurTableau;
+	    //border-left:2px solid tint(@fondTableauEntete, 30%);
+	    border-left:2px solid @clair1;
+	    text-align:center;
+	    cursor: pointer;
+	    transition: background 250ms ease-in-out;
+	    &:hover {
+		background: @rouge;
+	    }
+	}
+    }
+    td, th {
+	border:1px solid @clair1;
+	padding: 3px 2px;
+    }
+
+    tbody tr {
+	background:inherit;
+	color:inherit;
+	cursor: inherit;
+	transition: background 250ms ease-in-out, color 250ms ease;
+
+	&:hover {
+	    color:@blanc;
+	    background: @fondTableauEntete;
+	    cursor:pointer;
+	}
+    }
+
+    tbody td {
+	font-size:0.8em;
+	text-align:center;
+	text-transform: capitalize;
+    }
+
+}
+
+
+table.tableauStock {
+    tbody tr {
+	&:hover {
+	    color:@blanc;
+	    background: @fondTableauEntete;
+	    cursor:default;
+	}
+    }
+}
+
+table.tableauGerants {
+    tbody tr {
+	&:hover {
+	    color:@blanc;
+	    background: @fondTableauEntete;
+	    cursor:default;
+	}
+    }
+
+    tbody td {
+	text-align:left;
+    }
+
+    tbody td.rang, td.total, td.mensuel, td.neufs, td.occasions, td.dpt {
+	text-align:center;
+    }
+
+    tbody td.entreprise {
+	transition: @mouvement;
+	&:hover {
+	    color:@blanc;
+	    background:@complementaire;
+	    text-align:center;
+	    cursor:pointer;
+	}
+    }
+}
+
+article.gerants {
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows:2em 1fr;
+
+    grid-gap: 5px;
+    background: @gris2;
+    padding:10px;
+    border-radius: @bordure1;
+    border: 3px solid  @fondTableauEntete;
+    margin:0 10px;
+
+    h1 {
+	.rubrique()
+    }
+
+    table.tableauGerants {
+	grid-column-start: 1;
+	grid-column-end: 8;
+	grid-row-start: 2;
+	grid-row-end: 3;
+    }
+}
+
+main.analytiques {
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: minmax(1.5em, 2.25em) auto 1fr 1fr;
+    gap: 20px 5px;
+
+    background: @gris2;
+    padding:10px;
+    margin:0 10px;
+    border-radius: @bordure1;
+    border: 3px solid  @couleur;
+
+    h1 span {
+	.rubrique();
+    }
+
+    h1 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+
+    }
+
+    section.titulo {
+	font-size: 1.25em;
+	font-family:sans-serif;
+	font-weight:bold;
+	text-align:center;
+	text-transform: capitalize;
+
+	color:@complementaire;
+	background: lighten(@couleur,5%);
+	border:2px solid @complementaire;
+	border-radius: 6px;
+	cursor:default;
+	padding:10px 0;
+	margin: 0.125em 0 0.25em 0; 
+    }
+
+    div.item, div.items, div.itemsTitre, div.rubriqueItem {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+	padding:5px 10px;
+	border-radius: 6px;
+	border-width:2px;
+	border:2px solid @complementaire;
+	background:@blancFFF;
+
+	font-family:sans-serif;
+	font-size:1em;
+
+	div.intitule {
+	    color:@noir;
+	}
+
+	div.rubriqueIntitule {
+	    color:@blancFFF;
+	}
+
+	div.rubriqueValeur {
+	    color: @blancFFF;
+	}
+
+	div.terme {
+	    color:@noir;
+	    text-transform:capitalize;
+	}
+
+	div.titre {
+	    color:  inherit;
+	    background:inherit;
+	}
+	
+	div.unite {
+	    color: darken(saturate(@secondaire, 15%), 20%);
+	}
+	
+	div.valeur {
+	    color: saturate(@vert,10%);
+	}
+
+	div.valeur.rouge {
+	    color:@rouge;
+	    padding-left:10px;
+	}
+
+	
+    }
+
+    div.itemsTitre {
+	color: contrast(@secondaire);
+	background: lighten(@secondaire, 25%);
+    }
+
+
+    div.rubriqueItem {
+	color:@complementaire;
+	background:@clair1;
+    }
+
+    div.listeItems {
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 5px 5px;
+	margin:0.25em 0.15em .3em 0.15em;
+	//border-radius:@bordure1;
+	//background: @gris3a;
+    }
+
+    section.rubrique  {
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	margin:0.35em 0 .2em 0;
+	gap: 0px 5px;
+    }
+
+    section.ligne {
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	margin:0.125em 0 .125em 0;
+	gap: 0px 5px;
+    }
+
+    section.ligne#nombre, section.ligne#objectif, section.ligne#localisation {
+	gap: 10px 5px;
+    }
+
+    section.ligneTriple {
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
+	margin:10px 0;
+    }
+
+    article.concessions, article.ventes, article.stock {
+	border:3px solid @couleur;
+	border-radius:@bordure1;
+	padding:2px;
+	grid-column-start: 1;
+	grid-column-end: 11;
+    }
+
+    article.concessions {
+	grid-column-start: 1;
+	grid-column-end: 11;
+	grid-row-start: 2;
+	grid-row-end: 3;
+
+	display:flex;
+	flex-direction: column;
+	justify-content: start;
+    }
+
+}
+
+
+
+
+footer {
+    padding:10px 10px;
+    margin:5px 10px 10px 10px;
+    background: lighten(@gris3,12%);
+
+    border-radius: @bordure1;
+    border:3px solid @couleur;
+    user-select:none;
+
+    article.basDePage {
+	display:grid;
+	grid-auto-flow: row;
+	gap:5px;
+
+	background: @gris2;
+	border-radius: @bordure1;
+
+	div.titre {
+	    font-size:1em;
+	    font-weight:normal;
+	    font-family:sans-serif;
+	    text-align:center;
+	    padding:4px;
+	    border-radius: @bordure1;
+	    //margin-right:10px;
+	    color:@blancFFF;
+	    background:@couleur;
+	    border:2px solid @complementaire;
+	    text-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+	}
+
+	div.ville {
+	    color:@complementaire;
+	    background: lighten(@couleur,5%);
+	    border-color:@complementaire;
+	    font-family:sans-serif;
+	    text-align:center;
+	    text-transform: capitalize;
+	    padding:5px 0 2px 0;
+	    border-radius: 6px;
+	    border-width:2px;
+	    border-style:solid;
+	    text-shadow:0 0 0 1px rgba(0,0,0,.20);
+	    box-shadow:0 0 0 1px rgba(0,0,0,.15);
+	    cursor:pointer;
+	    overflow:auto;
+	    transition:@mouvement;
+	    &:hover {
+		color:@couleur;
+		background:@complementaire;
+		border-color:@couleur;
+	    }
+
+	}
+
+
+	div.item {
+	    display:flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    padding:0 3px;
+	    border-radius: 6px;
+	    border-width:2px;
+	    border:2px solid @complementaire;
+	    padding:5px 2px 2px 2px;
+	    // box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+	    overflow: auto;
+	    background: @blancFFF;
+
+	    div.intitule, div.valeur {
+		font-family: sans-serif;
+		font-size:1em;	  
+	    }
+
+	    div.intitule {
+		color:@noir;
+	    }
+	    
+	    div.valeur {
+		color:@vert;
+	    }
+	}
+
+	section {
+	    display:grid;
+	    //grid-template-columns: repeat(5, 1fr);
+	    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	    grid-auto-rows: 2em;
+	    gap: 10px;
+	}
+
+	// section#communes {
+	//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	
+	// }
+    }
+    
+}
+
+

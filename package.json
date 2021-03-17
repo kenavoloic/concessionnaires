@@ -1,0 +1,41 @@
+{
+    "name": "Concessionnaires",
+    "version": "1.0.0",
+    "description": "SPA React utilisant des données produites par FauxTexte",
+    "main": "index.js",
+    "private": true,
+    "scripts": {
+	"dev": "webpack-dev-server --hot --mode development --port 9999 --config webpack.config.dev.js",
+	"build:dev": "webpack-dev-server --progress --hot --mode development --port 9999 --config webpack.config.dev.js",
+	"build:prod": "rm -rf distribution && webpack --config webpack.config.js",
+	"start": "node distribution/js/client.js"
+    },
+    "keywords": [],
+    "author": "Kenavo Loïc <kenavoloic@gmail.com> (https://github.com/kenavoloic)",
+    "license": "MIT",
+    "dependencies": {
+	"react": "^16.13.1",
+	"react-dom": "^16.13.1",
+	"react-router": "^5.2.0",
+	"react-router-dom": "^5.2.0"
+    },
+    "devDependencies": {
+	"@babel/core": "^7.10.5",
+	"@babel/plugin-transform-runtime": "^7.10.5",
+	"@babel/preset-env": "^7.10.4",
+	"@babel/preset-react": "^7.10.4",
+	"babel-loader": "^8.1.0",
+	"css-loader": "^4.0.0",
+	"file-loader": "^6.1.0",
+	"html-webpack-plugin": "^4.3.0",
+	"ignore-loader": "^0.1.2",
+	"less": "^3.12.2",
+	"less-loader": "^6.2.0",
+	"mini-css-extract-plugin": "^0.9.0",
+	"nodemon": "^2.0.4",
+	"null-loader": "^4.0.0",
+	"webpack": "^4.44.0",
+	"webpack-cli": "^3.3.12",
+	"webpack-dev-server": "^3.11.0"
+    }
+}
