@@ -9,10 +9,10 @@ const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 ```
 
 ```
-__seed__ chaîne de caractères
-__mpp__ *entier*, nombre de mots par phrase
-__ppp__ *entier*, nombre de paragraphes par phrase
-__np__ *entier*, nombre premier
+**seed** chaîne de caractères, graine aléatoire.
+**mpp** *entier*, nombre de mots par phrase.
+**ppp** *entier*, nombre de paragraphes par phrase.
+**np** *entier*, nombre premier.
 ```
 
 ```javascript
