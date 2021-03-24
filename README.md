@@ -9,10 +9,12 @@ const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 ```
 
 `seed` chaîne de caractères
-`mpp` *entier*, nombre de mots par phrase
-`ppp` *entier*, nombre de paragraphes par phrase
-`np` *entier*, nombre premier
 
+`mpp` *entier*, nombre de mots par phrase
+
+`ppp` *entier*, nombre de paragraphes par phrase
+
+`np` *entier*, nombre premier
 
 ```javascript
 const faux = new FauxTexte("Louison Bobet");
