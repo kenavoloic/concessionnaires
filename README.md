@@ -3,7 +3,11 @@ SPA React utilisant des données produites par FauxTexte.
 ## FauxTexte
 
 ### Constructeur
+
+```javascript
 const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, maximum:6}, np = 23);
+```
+
 seed : chaîne de caractères
 mpp: *entier*, nombre de mots par phrase.
 ppp: *entier*, nombre de paragraphes par phrase.
@@ -12,6 +16,7 @@ np: *entier*, nombre premier.
 ```javascript
 const faux = new FauxTexte("Louison Bobet");
 ```
+
 ### Méthodes
 
 #### fauxTexte.generateurListe(tableau)
@@ -24,14 +29,14 @@ console.log(dixMarques);
 
 ```
 #### fauxTexte.generateurValeur(entier1, entier2)
-Génère des valeurs entières comprises entre *entier1* et *entier2*.
+Retourne un générateur de valeurs comprises entre *entier1* et *entier2*.
 ```javascript
     const generateurNombreFournisseurs = faux.generateurValeur(10, 50);
     console.log(generateurNombrefournisseurs());   
 ```
 
 #### fauxTexte.prenomsFeminins(entier)
-Retourne un tableau de chaînes de caractères..
+Retourne un tableau de chaînes de caractères.
 ```javascript
 const mecaniciennes = faux.prenomsFeminins(10);
 ```
@@ -74,6 +79,7 @@ Retourne une chaîne de caractères.
 const nomDeFamille = faux.patronyme();
 
 ```
+
 #### fauxTexte.typesVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
@@ -90,10 +96,12 @@ const voie = faux.typeVoie();
 #### fauxTexte.nomsVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
+const nomsDeVoie = faux.nomsVoies(10);
 ```
 #### fauxTexte.nomVoie()
 Retourne une chaîne de caractères.
 ```javascript
+const nom = faux.nomVoie();
 ```
 
 #### fauxTexte.adresse()
@@ -106,8 +114,6 @@ const {numero, nom, booleen, type, chaine} = domicile;
 *numero* Numéro de voie, chaîne de caractères.
 *nom* Nom de voie, chaîne de caractères.
 *chaine* adresse, chaîne de caractères
-*booleen* pour éviter des absurdités telles que *10 rue Grand’Rue*, *true* ou *false*.
-
 
 #### fauxTexte.aleaCentaine()
 Retourne une valeur entière comprise entre 1 et 101.
@@ -175,20 +181,21 @@ Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganis
 #### fauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 ```javascript
-const generateurDateConstitutionSociete = fauxTexte.generateurDatePlancherplafond("1");
+const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("1.1.2000", "31.12.2010");
 ```
+
 #### fauxTexte.generateurDateDepuis(chaine)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 
 ```javascript
-const generateurDateConstitutionSociete = fauxTexte.generateurDatePlancherplafond("26/05/1993");
+const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("26/05/1993");
 ```
-
 
 #### fauxTexte.jourCalendaire(anneePlancher=1945, anneePlafond=2020)
 Retourne un objet *Date*.
 ```javascript
 const dateConstitutionSociete = fauxTexte.jourCalendaire(2000,2005);
+console.log(dateConstitutionsociete.toLocaleString('fr-FR', {day:'numeric', month:'numeric', year:'numeric'}));
 
 ```
 
