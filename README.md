@@ -1,27 +1,39 @@
-SPA React utilisant des données produites par FauxTexte.
 
-## FauxTexte
 
-### Constructeur
+# *Concessionnaires*
+
+SPA React utilisant des données aléatoires produites par *FauxTexte*.
+
+Les ventes de concessionnaires automobiles au cours des douze derniers sont représentées au travers de trois panneaux. *Accueil* propose un classement des concessions en fonction de la réalisation des objectifs de vente. L’onglet *Gérants* dresse un classement des gérants en fonction des résultats des concessions. *Analyses* synthétise les données de l’ensemble des concessions. À tout moment, il est possible de connaître l’activité détaillée d’une concession. Quel est son volume de ventes ? Quantité et qualité de son inventaire ? Quels sont ses fournisseurs ? Qui sont ses clients ?
+
+La fenêtre *Aléa* permet de changer les données produites.
+
+
+# *FauxTexte*
+
+Système de production de données aléatoires. Le faux-texte aléatoire produit contient les lettres, accents et signes de ponctuation propres à la graphie de la langue française. Il en va de même pour les patronymes et les prénoms. Par ailleurs, si les adresses produites sont entièrement fictives,  les noms de communes sont authentiques. Ils correspondent aux vrais départements ainsi qu’aux régions actuelles.
+
+FauxTexte est écrit en simple javascript.
+
+
+## Constructeur
 
 ```javascript
 const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, maximum:6}, np = 23);
 ```
 
-
-**seed** chaîne de caractères, graine aléatoire.
-**mpp** *entier*, nombre de mots par phrase.
-**ppp** *entier*, nombre de paragraphes par phrase.
-**np** *entier*, nombre premier.
-
+**seed**, chaîne de caractères, graine aléatoire.  
+**mpp**, *entier*, nombre de mots par phrase.  
+**ppp**, *entier*, nombre de paragraphes par phrase.  
+**np**, *entier*, nombre premier.  
 
 ```javascript
 const faux = new FauxTexte("Louison Bobet");
 ```
 
-### Méthodes
+## Méthodes
 
-#### fauxTexte.generateurListe(tableau)
+### FauxTexte.generateurListe(tableau)
 Retourne un générateur à partir d’une liste.
 ```javascript
 const listeMarques = ["Alfa Romeo","Audi","BMW","Citroën","Dacia","DS"];
@@ -30,103 +42,111 @@ const dixMarques = Array(10).fill(0).map(x => generateurMarques());
 console.log(dixMarques);
 
 ```
-#### fauxTexte.generateurValeur(entier1, entier2)
+### FauxTexte.generateurValeur(entier1, entier2)
 Retourne un générateur de valeurs comprises entre *entier1* et *entier2*.
 ```javascript
     const generateurNombreFournisseurs = faux.generateurValeur(10, 50);
-    console.log(generateurNombrefournisseurs());   
+    const dixFournisseurs = Array(10).fill(0).map(x => generateurNombreFournisseurs());
+    console.log(dixFournisseurs);   
 ```
 
-#### fauxTexte.prenomsFeminins(entier)
+### FauxTexte.prenomsFeminins(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const mecaniciennes = faux.prenomsFeminins(10);
 ```
 
-#### fauxTexte.prenomFeminin()
+### FauxTexte.prenomFeminin()
 Retourne une chaîne de caractères.
 ```javascript
 const prenomDirectrice = faux.prenomFeminin();
 ```
 
-#### fauxTexte.prenomsMasculins(entier)
+### FauxTexte.prenomsMasculins(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const carrossiers = faux.prenomsMasculins(10);
 ```
 
-#### fauxTexte.prenomMasculin()
+### FauxTexte.prenomMasculin()
 Retourne une chaîne de caractères. 
 ```javascript
 const prenomAssureur = faux.prenomMasculin();
 ```
 
-#### fauxTexte.prenom()
+### FauxTexte.prenom()
 Retourne un objet *prenom*.
 ```javascript
 const prenom = faux.prenom();
 const {h,f} = prenom;
 ```
 
-#### fauxTexte.patronymes(entier)
+### FauxTexte.patronymes(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const nomsDeFamille = faux.patronymes(10);
 
 ```
 
-#### fauxTexte.patronyme()
+### FauxTexte.patronyme()
 Retourne une chaîne de caractères.
 ```javascript
 const nomDeFamille = faux.patronyme();
 
 ```
 
-#### fauxTexte.typesVoies(entier)
+### FauxTexte.typesVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const voies = faux.typesVoies(10);
 
 ```
 
-#### fauxTexte.typeVoie()
+### FauxTexte.typeVoie()
 Retourne une chaîne de caractères.
 ```javascript
 const voie = faux.typeVoie();
 ```
 
-#### fauxTexte.nomsVoies(entier)
+### FauxTexte.nomsVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const nomsDeVoie = faux.nomsVoies(10);
 ```
-#### fauxTexte.nomVoie()
+### FauxTexte.nomVoie()
 Retourne une chaîne de caractères.
 ```javascript
 const nom = faux.nomVoie();
 ```
 
-#### fauxTexte.adresse()
+### FauxTexte.adresse()
 Retourne un objet *adresse*.
 ```javascript
 const domicile = faux.adresse();
 const {numero, nom, booleen, type, chaine} = domicile;
 ```
 
-*numero* Numéro de voie, chaîne de caractères.
-*nom* Nom de voie, chaîne de caractères.
-*chaine* adresse, chaîne de caractères
+*numero* Numéro de voie, chaîne de caractères.  
+*nom* Nom de voie, chaîne de caractères.  
+*chaine* adresse, chaîne de caractères.  
 
-#### fauxTexte.aleaCentaine()
+### FauxTexte.aleaCentaine()
 Retourne une valeur entière comprise entre 1 et 101.
+```javascript
+const pourcentages = Array(10).fill(0).map(x => faux.aleaCentaine());
+```
 
-#### fauxTexte.aleaMillier()
+### FauxTexte.aleaMillier()
 Retourne une valeur entière comprise entre 1 et 1001.
+```javascript
+const kilometrages = Array(10).fill(0).map(x => faux.aleaMillier() * 1000);
+```
 
-#### fauxTexte.zeroUn()
+### FauxTexte.zeroUn()
 Retourne *0* ou *1*.
+const civilite = faux.zeroUn() ? "Madame" : "Monsieur";
 
-#### fauxTexte.nomVille()
+### FauxTexte.nomVille()
 Retourne un objet *ville*.
 ```javascript
 const domicile = faux.nomVille();
@@ -145,13 +165,13 @@ chaîne de caractères :
 
 *departements* tableau des départements constituant la même région. Chaînes de caractères.
 
-#### fauxTexte.nomsVilles(entier)
+### FauxTexte.nomsVilles(entier)
 Retourne un tableau d’objets *ville*.
 ```javascript
 const villesFournisseurs = faux.nomsVilles(10);
 ```
 
-#### fauxTexte.communesDepartement(departement)
+### FauxTexte.communesDepartement(departement)
 Retourne un tableau des noms de communes du département.
 *departement* est de type chaîne de caractères.
 ```javascript
@@ -159,7 +179,7 @@ const domicile = nomVille();
 const communesDepartements = faux.communesDepartement(domicile.numeroDepartement);
 ```
 
-#### fauxTexte.communesRegion(regionIso)
+### FauxTexte.communesRegion(regionIso)
 Retourne un tableau des noms de communes du département.
 *regionIso* est de type chaîne de caractères.
 ```javascript
@@ -167,8 +187,7 @@ const domicile = nomVille();
 const communesRegionales = faux.communesRegionales(domicile.isoRegion);
 ```
 
-
-#### fauxTexte.melangeur()
+### FauxTexte.melangeur()
 Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganiser un tableau en indexant chacun de ses éléments.
 
 ```javascript
@@ -177,23 +196,22 @@ Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganis
 	const nouvelleListeMarques = listeMarques.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
 	console.log(listeMarques);
 	console.log(nouvelleListemarques);
-
 ```
 
-#### fauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
+### FauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 ```javascript
 const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("1.1.2000", "31.12.2010");
 ```
 
-#### fauxTexte.generateurDateDepuis(chaine)
+### FauxTexte.generateurDateDepuis(chaine)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 
 ```javascript
 const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("26/05/1993");
 ```
 
-#### fauxTexte.jourCalendaire(anneePlancher=1945, anneePlafond=2020)
+### FauxTexte.jourCalendaire(anneePlancher=1945, anneePlafond=2020)
 Retourne un objet *Date*.
 ```javascript
 const dateConstitutionSociete = fauxTexte.jourCalendaire(2000,2005);
