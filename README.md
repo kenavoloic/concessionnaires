@@ -8,13 +8,12 @@ SPA React utilisant des données produites par FauxTexte.
 const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, maximum:6}, np = 23);
 ```
 
-`seed` chaîne de caractères
-
-`mpp` *entier*, nombre de mots par phrase
-
-`ppp` *entier*, nombre de paragraphes par phrase
-
-`np` *entier*, nombre premier
+```
+__seed__ chaîne de caractères
+__mpp__ *entier*, nombre de mots par phrase
+__ppp__ *entier*, nombre de paragraphes par phrase
+__np__ *entier*, nombre premier
+```
 
 ```javascript
 const faux = new FauxTexte("Louison Bobet");
