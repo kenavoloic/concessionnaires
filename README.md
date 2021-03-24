@@ -109,28 +109,77 @@ Retourne un tableau de chaîne de caractères.
 Retourne une chaîne de caractères.
 ```javascript
 ```
+
 ####faux.adresse()
 Retourne un objet.
 ```javascript
 const domicile = faux.adresse();
 const {numero, nom, booleen, type, chaine} = domicile;
 ```
+*numero* Numéro de voie, type chaîne de caractères.
+*nom* Nom de voie, type chaîne de caractères.
+*booleen* Pour éviter des absurdités telles que *10 rue Grand’Rue*, *true* ou *false*.
+*chaine* chaîne de caractères
+
 ####faux.generateurDatePlancherPlafond(chaine1, chaine2)
 Retourne un objet.
+
 ####faux.generateurDateDepuis(chaine)
 Retourne un objet.
+
 ####faux.jourCalendaire(anneePlancher=1945, anneePlafond=2020)
 Retourne une chaîne de caractères.
+
 ####faux.aleaCentaine()
 Retourne une chaîne de caractères.
+
 ####faux.aleaMillier()
 Retourne une chaîne de caractères.
+
 ####faux.zeroUn()
 Retourne *0* ou *1*.
+
 ####faux.nomVille()
+Retourne un objet.
+```javascript
+const domicile = faux.nomVille();
+const {nom, codeInsee, codeCommune, codePostal, numeroDepartement, nomDepartement, nomRegion, isoRegion, regionAlphabetique, departements} = domicile;
+```
+
+chaîne de caractères :
+* *nom*
+* *codeInsee*
+* *codeCommune*
+* *codePostal* 
+* *numeroDepartement*
+* *nomRegion*
+* *isoRegion*,
+* *regionAlphabetique*
+
+*departements* tableau des départements constituant la même région. Chaînes de caractères.
+
 ####faux.nomsVilles(entier)
-####faux.communesDepartement()
-####faux.communesRegion()
+Retourne un tableau d’objets.
+```javascript
+const villesFournisseurs = faux.nomsVilles(10);
+```
+
+####faux.communesDepartement(departement)
+Retourne un tableau des noms de communes du département.
+*departement* est de type chaîne de caractères.
+```javascript
+const domicile = nomVille();
+const communesDepartements = faux.communesDepartement(domicile.numeroDepartement);
+```
+
+####faux.communesRegion(regionIso)
+Retourne un tableau des noms de communes du département.
+*regionIso* est de type chaîne de caractères.
+```javascript
+const domicile = nomVille();
+const communesRegionales = faux.communesRegionales(domicile.isoRegion);
+```
+
 ####faux.jourCalendaire()
 ####faux.numeroSecuriteSociale,()
 ####faux.melangeur()
