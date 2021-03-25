@@ -15,7 +15,7 @@ Node.js, React.js, Webpack, less.
 
 Système de production de données aléatoires. Le faux-texte aléatoire produit contient les lettres, accents et signes de ponctuation propres à la graphie de la langue française. Il en va de même pour les patronymes et les prénoms. Par ailleurs, si les adresses produites sont entièrement fictives, les noms de communes sont authentiques. Ils correspondent aux vrais départements français ainsi qu’aux régions actuelles.
 
-*FauxTexte* est écrit en simple javascript.
+*FauxTexte* est écrit en JavaScript.
 
 
 ## Constructeur
