@@ -190,7 +190,9 @@ const kilometrages = Array(10).fill(0).map(x => faux.aleaMillier() * 1000);
 
 ### FauxTexte.zeroUn()
 Retourne *0* ou *1*.
+```javascript
 const civilite = faux.zeroUn() ? "Madame" : "Monsieur";
+```
 
 ### FauxTexte.nomVille()
 Retourne un objet *ville*.
