@@ -2,12 +2,16 @@
 
 # *Concessionnaires*
 
+## Présentation
 SPA React utilisant des données aléatoires produites par *FauxTexte*.
 
 Les ventes de concessionnaires automobiles au cours des douze derniers sont représentées au travers de trois panneaux. *Accueil* propose un classement des concessions en fonction de la réalisation des objectifs de vente. L’onglet *Gérants* dresse un classement des gérants en fonction des résultats des concessions. *Analyses* synthétise les données de l’ensemble des concessions. À tout moment, il est possible de connaître l’activité détaillée d’une concession. Quel est son volume de ventes ? Quantité et qualité de son inventaire ? Quels sont ses fournisseurs ? Qui sont ses clients ? Qui est à la direction de la concession ?
 
 La fenêtre *Aléa* permet de changer les données produites.
 
+## Technologies utilisées
+
+Node.js, React.js, Webpack, less.
 
 # *FauxTexte*
 
@@ -24,7 +28,7 @@ const faux = new FauxTexte(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
 **seed**, chaîne de caractères, graine aléatoire.  
 **mpp**, *entier*, nombre de mots par phrase.  
-**ppp**, *entier*, nombre de paragraphes par phrase.  
+**ppp**, *entier*, nombre de phrases par paragraphes.  
 **np**, *entier*, nombre premier.  
 
 ```javascript
@@ -32,6 +36,48 @@ const faux = new FauxTexte("Louison Bobet");
 ```
 
 ## Méthodes
+
+### FauxTexte.liste(entier)
+Retourne un tableau de chaînes de caractères.
+
+```javascript
+const dixMots = faux.liste(10);
+```
+
+### FauxTexte.mots(entier)
+Retourne un tableau de chaînes de caractères.
+
+```javascript
+const sixMots = faux.mots(6);
+```
+
+### FauxTexte.mot()
+Retourne une chaîne de caractères.
+
+```javascript
+const titre = faux.mot();
+```
+
+### FauxTexte.paragraphes(entier)
+Retourne un tableau de chaînes de caractères.
+```javascript
+const treizeParagraphes = faux.paragraphes(13);
+```
+
+### FauxTexte.paragraphe()
+Retourne une chaîne de caractères.
+```javascript
+const pitch = faux.paragraphe();
+```
+
+### FauxTexte.nombreLettres(entier)
+Retourne une chaîne de caractères.
+*entier* doit être supérieur ou égal à zéro et inférieur ou égal à cent.
+La valeur par défaut est zéro.
+
+```javascript
+const douze = faux.nombreLettres(12)
+```
 
 ### FauxTexte.generateurListe(tableau)
 Retourne un générateur à partir d’une liste.
