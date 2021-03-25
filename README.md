@@ -1,5 +1,3 @@
-
-
 # *Concessionnaires*
 
 ## Présentation
@@ -38,7 +36,7 @@ const faux = new FauxTexte("Louison Bobet");
 ## Méthodes
 
 ### FauxTexte.liste(entier)
-Retourne un tableau de chaînes de caractères.
+Retourne une chaînes de caractères.
 
 ```javascript
 const dixMots = faux.liste(10);
@@ -59,13 +57,13 @@ const titre = faux.mot();
 ```
 
 ### FauxTexte.paragraphes(entier)
-Retourne un tableau de chaînes de caractères.
+Retourne un tableau de chaînes de caractères. La première lettre de chaque chaîne est une majuscule.
 ```javascript
 const treizeParagraphes = faux.paragraphes(13);
 ```
 
 ### FauxTexte.paragraphe()
-Retourne une chaîne de caractères.
+Retourne une chaîne de caractères. La première lettre du paragraphe est une majuscule.
 ```javascript
 const pitch = faux.paragraphe();
 ```
@@ -74,9 +72,9 @@ const pitch = faux.paragraphe();
 Retourne une chaîne de caractères.
 *entier* doit être supérieur ou égal à zéro et inférieur ou égal à cent.
 La valeur par défaut est zéro.
-
 ```javascript
-const douze = faux.nombreLettres(12)
+const nombres = [1,3,5,7,8];
+const lettres = nombres.map(x => faux.nombreLettres(x));
 ```
 
 ### FauxTexte.generateurListe(tableau)
