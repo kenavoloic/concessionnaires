@@ -1,7 +1,7 @@
 # *Concessionnaires*
 
 ## Présentation
-SPA React utilisant des données aléatoires produites par *FauxTexte*.
+SPA React utilisant des données aléatoires produites par *FauxTexte*. Elle n’a pas pour objectif d’être exhaustive, mais tout simplement de proposer une démonstration de l’intérêt de *FauxTexte*.
 
 Les ventes de concessionnaires automobiles au cours des douze derniers sont représentées au travers de trois panneaux. *Accueil* propose un classement des concessions en fonction de la réalisation des objectifs de vente. L’onglet *Gérants* dresse un classement des gérants en fonction des résultats des concessions. *Analyses* synthétise les données de l’ensemble des concessions. À tout moment, il est possible de connaître l’activité détaillée d’une concession. Quel est son volume de ventes ? Quantité et qualité de son inventaire ? Quels sont ses fournisseurs ? Qui sont ses clients ? Qui est à la direction de la concession ?
 
