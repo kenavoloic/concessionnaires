@@ -17,7 +17,7 @@ import { masculins, feminins }  from './prenoms';
 import { types as tVoies, odonymiques as nVoies }  from './voirie';
 import {ville, nombreVilles, communesDepartementales, communesRegionales}  from './ville.js';
 import {departementsRegions, listeRegions, regionsIsoNom, regionsNomIso}  from './departementsRegions';
-import {validationDate, jCalendaire, dureeJour, dureeSemaine, triObjetsDate, numeroSecuriteSociale}  from './dates.js';
+import {validationDate, jCalendaire, dureeJour, dureeSemaine, triObjetsDate, numeroSecuriteSociale, numeroSecuriteSociale99}  from './dates.js';
 import {nombresPremiers, reducteurGraine}  from './premiers';
 import {Lmap, iteration, aleaListe, aleaPlancherPlafond, aleaMelangeurTableau}  from './fonctionsLmap';
 import donneesXR from './donneesChaotiques';
@@ -78,9 +78,6 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	const itemValeurAleatoire = () => iterationValeur(_generateurValeur.next().value);
 	return itemValeurAleatoire;
     };
-
-
-
 
 
     const {x:xVille, r:rVille} = donneesXR('ville');
@@ -235,7 +232,9 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	return validationDate(jj, mm, aaaa, heures, minutes);
     };
 
-    const securiteSociale = (genre, dob, villeNaissance, ordre) => dates.numeroSecuriteSociale(genre, dob, villeNaissance, ordre); 
+    const securiteSociale = (genre, dob, villeNaissance, ordre) => dates.numeroSecuriteSociale(genre, dob, villeNaissance, ordre);
+
+    const securiteSociale99 = (genre, dob, inseePays, ordre) => dates.numeroSecuriteSociale99(genre, dob, inseePays, ordre);
 
     //Retourne un mot tiré de la liste des mots.
     const {x:xMots, r:rMots} = donneesXR('mots');
@@ -397,8 +396,11 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	zeroUn,
 	nomVille, nomsVilles,
 	communesDepartement, communesRegion,
-	jourCalendaire, numeroSecuriteSociale,
-	melangeur
+	jourCalendaire,
+	//numeroSecuriteSociale,
+	melangeur,
+	securiteSociale, securiteSociale99
+	
     };
 };
 

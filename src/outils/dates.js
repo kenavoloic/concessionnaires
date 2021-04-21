@@ -73,19 +73,37 @@ const anciennete = embauche => {
 
 
 };
-
+//Choix de ne pas de calculer la clef du numero de SS.
 const numeroSecuriteSociale = (genre, dob, villeNaissance, ordre) => {
-    //prendre en compte les règles pour les dom et tom
-    //département => 3 chiffres
-    //commune => 2 chiffres
+    //corse
+    //corse 2a => 20 
+    //corse 2b => 20
+    //   2 94 05 2a 004 101 999 / 2 94 05 2b 005 101 999
+    //=> 2 94 05 20 004 101 999
+    //justification : les numéros insee des communes de l’ancien département de la Corse n'ont pas changé lors dela création des deux départments de Haute-Corse et Corse du Sud. Impossible d'avoir une commune de 2A avec le même numéro qu'une commune de 2B.
+    //Dom-Tom
+    //Conversion du numéro de département en '97'
+    
     let sexe = (genre === 'f') ? 2 : 1;
     let annee = String(dob.getFullYear()).slice(2);
     let mois = dob.getMonth()+1;
-    let dpt = villeNaissance.numeroDepartement;
+    let _dpt = villeNaissance.numeroDepartement;
+    let dpt = (_dpt === '2a' || _dpt === '2b') ? '20' : _dpt.startsWith('97') ? '97' : _dpt;
     let commune = villeNaissance.codeInsee;
     let ordreDeNaissance = String(ordre).padStart(3,'0');
     let clef = 'xx';
     return `${sexe}.${annee}.${String(mois).padStart(2,'0')}.${dpt}.${commune}.${ordreDeNaissance}.${clef}`;
+};
+
+const numeroSecuriteSociale99 = (genre, dob, inseePays, ordre) => {
+    let sexe = (genre === 'f') ? 2 : 1;
+    let annee = String(dob.getFullYear()).slice(2);
+    let mois = dob.getMonth()+1;
+    let ordreDeNaissance = String(ordre).padStart(3,'0');
+    let pays = inseePays.slice(2);
+    let clef = 'xx';
+    return `${sexe}.${annee}.${String(mois).padStart(2,'0')}.99.${pays}.${ordreDeNaissance}.${clef}`;
+    
 };
 
 //module.exports = {jCalendaire, dureeJour, dureeSemaine, validationDate, triObjetsDate, dateEmbauche, dateMajorite, numeroSecuriteSociale, _dateEmbauche};
@@ -94,4 +112,4 @@ const numeroSecuriteSociale = (genre, dob, villeNaissance, ordre) => {
 //const dates = {jCalendaire, dureeJour, dureeSemaine, validationDate, triObjetsDate, dateEmbauche, dateMajorite, numeroSecuriteSociale, _dateEmbauche};
 
 //export default dates;
-export { dureeJour, dureeSemaine, triObjetsDate, jCalendaire, validationDate, dateMajorite, dateEmbauche, _dateEmbauche, numeroSecuriteSociale};
+export { dureeJour, dureeSemaine, triObjetsDate, jCalendaire, validationDate, dateMajorite, dateEmbauche, _dateEmbauche, numeroSecuriteSociale, numeroSecuriteSociale99};
