@@ -24,9 +24,9 @@ const Identification = ({nom, adresse, ville, gerant, ape}) => {
 	    <dt className="gerance">{gerant.civilite === "Monsieur" ? "Gérant" : "Gérante"}</dt>
 	    <dd className="gerant">{gerant.civilite} {capitale(gerant.prenom)} {capitale(gerant.nom)}</dd>
 	<dd className="naissance">{gerant.civilite === "Monsieur" ? "Né" :"Née"} le {gerant.naissance.toLocaleString('fr-FR', {day:'numeric', month:'long', year:'numeric'})} à {gerant.villeNaissance.nom}, {gerant.villeNaissance.nomDepartement}.</dd>
-
-	<dd className="adresse">{gerant.adresse.chaine}</dd>
-		    <dd className="codeNom">{gerant.villeDomicile.codePostal} {gerant.villeDomicile.nom}</dd>
+		    <dd className="gerant">{gerant.ss}</dd>
+		    <dd className="adresse">{gerant.adresse.chaine}</dd>
+		<dd className="codeNom">{gerant.villeDomicile.codePostal} {gerant.villeDomicile.nom}</dd>
 		</dl>
 	    </article>
 	</article>

@@ -84,25 +84,23 @@ const numeroSecuriteSociale = (genre, dob, villeNaissance, ordre) => {
     //Dom-Tom
     //Conversion du numéro de département en '97'
     
-    let sexe = (genre === 'f') ? 2 : 1;
     let annee = String(dob.getFullYear()).slice(2);
     let mois = dob.getMonth()+1;
     let _dpt = villeNaissance.numeroDepartement;
     let dpt = (_dpt === '2a' || _dpt === '2b') ? '20' : _dpt.startsWith('97') ? '97' : _dpt;
     let commune = villeNaissance.codeInsee;
     let ordreDeNaissance = String(ordre).padStart(3,'0');
-    let clef = 'xx';
-    return `${sexe}.${annee}.${String(mois).padStart(2,'0')}.${dpt}.${commune}.${ordreDeNaissance}.${clef}`;
+    let clef = 'XX';
+    return `${genre}.${annee}.${String(mois).padStart(2,'0')}.${String(dpt).padStart(2,'0')}.${String(commune).padStart(3,'0')}.${String(ordreDeNaissance).padStart(3,'0')}.${clef}`;
 };
 
 const numeroSecuriteSociale99 = (genre, dob, inseePays, ordre) => {
-    let sexe = (genre === 'f') ? 2 : 1;
     let annee = String(dob.getFullYear()).slice(2);
     let mois = dob.getMonth()+1;
     let ordreDeNaissance = String(ordre).padStart(3,'0');
     let pays = inseePays.slice(2);
-    let clef = 'xx';
-    return `${sexe}.${annee}.${String(mois).padStart(2,'0')}.99.${pays}.${ordreDeNaissance}.${clef}`;
+    let clef = 'XX';
+    return `${genre}.${annee}.${String(mois).padStart(2,'0')}.99.${pays}.${ordreDeNaissance}.${clef}`;
     
 };
 

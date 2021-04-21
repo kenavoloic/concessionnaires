@@ -232,9 +232,10 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	return validationDate(jj, mm, aaaa, heures, minutes);
     };
 
-    const securiteSociale = (genre, dob, villeNaissance, ordre) => dates.numeroSecuriteSociale(genre, dob, villeNaissance, ordre);
+    const securiteSociale = (genre, dob, villeNaissance, ordre) => numeroSecuriteSociale(genre, dob, villeNaissance, ordre);
 
-    const securiteSociale99 = (genre, dob, inseePays, ordre) => dates.numeroSecuriteSociale99(genre, dob, inseePays, ordre);
+    const securiteSociale99 = (genre, dob, inseePays, ordre) => numeroSecuriteSociale99(genre, dob, inseePays, ordre);
+
 
     //Retourne un mot tiré de la liste des mots.
     const {x:xMots, r:rMots} = donneesXR('mots');

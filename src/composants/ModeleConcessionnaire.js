@@ -26,7 +26,7 @@ const ModeleConcessionnaire = function(faux){
 
     const raisonSocialeFournisseur = faux.generateurListe(donnees('raisonsSocialesFournisseurs'));
 
-    const prenoms = (genre=2) => genre ===2 ? (faux.zeroUn() ? [faux.prenomMasculin(), "Monsieur"] : [faux.prenomFeminin(), "Madame"] ) : genre === 0 ? [faux.prenomMasculin(), "Monsieur"] : [faux.prenomFeminin(), "Madame"];
+    const prenoms = (genre=2) => genre === 2 ? (faux.zeroUn() ? [faux.prenomMasculin(), "Monsieur"] : [faux.prenomFeminin(), "Madame"] ) : genre === 0 ? [faux.prenomMasculin(), "Monsieur"] : [faux.prenomFeminin(), "Madame"];
 
 
     const aujourdhui = new Date();
@@ -108,6 +108,7 @@ const ModeleConcessionnaire = function(faux){
     };
 
     const getConcessionnaire = (genre, identifiant) => {
+
 	//Entreprise
 	let nom = faux.patronyme();
 	let raisonSociale = raisonSocialeConcessionnaire();
@@ -162,11 +163,15 @@ const ModeleConcessionnaire = function(faux){
 	let naissanceGerant = new Date(plancherGerant + jourNaissance() * dureeJour);
 	let villeNaissanceGerant = faux.nomVille();
 	let villeDomicileGerant = villesFournisseurs();
+	let ordreNaissanceGerant = 1 + (faux.aleaMillier() % 999);
+
 	let adresseGerant = faux.adresse();
 	let [prenom, civilite] = prenoms(genre);
 	let _courrielGerant = civilite.toLowerCase() === "madame" ? `gerante@${raisonSociale.nom}.${nom}.${ville.nom}.fr` : `gerant@${raisonSociale.nom}.${nom}.${ville.nom}.fr`;
+	let genreSecuriteSociale = civilite.toLowerCase() === "madame" ? 2 : 1;
+	let numeroSecuriteSociale = faux.securiteSociale(genreSecuriteSociale, naissanceGerant, villeNaissanceGerant, ordreNaissanceGerant);
 	let courrielGerant = remplacementEspace(_courrielGerant);
-	let gerant = {nom:nomGerant, prenom:prenom, naissance:naissanceGerant, villeNaissance:villeNaissanceGerant, civilite:civilite, courriel:courrielGerant, villeDomicile:villeDomicileGerant, adresse:adresseGerant};
+	let gerant = {nom:nomGerant, prenom:prenom, naissance:naissanceGerant, villeNaissance:villeNaissanceGerant, civilite:civilite, courriel:courrielGerant, villeDomicile:villeDomicileGerant, adresse:adresseGerant, ss: numeroSecuriteSociale};
 
 	let booleen = clients.length/12.0 > seuilVentes ? true:false;
 
