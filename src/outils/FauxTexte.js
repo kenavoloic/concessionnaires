@@ -87,7 +87,6 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
     const nomsVilles = nombre => {
 	nombre = isNaN(nombre) ? 1 : nombre;
-	//console.log('nomVilleAléatoire ', nomVilleAleatoire());
 	return (nombre === 1) ? ville(nomVilleAleatoire()) : Array(nombre).fill(0).map(x => ville(nomVilleAleatoire()));
     };
 

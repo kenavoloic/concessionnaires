@@ -67,7 +67,7 @@ const ModeleConcessionnaire = function(faux){
 
     const getSeuilVentes = () => donnees('seuilVentes');
 
-    //console.log(faux.nomsVilles(3));
+
 
     const analyses = liste => {
 	let _occasions = liste.filter(x => x.km !== 0);

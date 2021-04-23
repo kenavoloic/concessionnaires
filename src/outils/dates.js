@@ -44,36 +44,9 @@ const dateMajorite = ({j,m,a,h,mn}) => {
     //return new Date(a, m, j, h, mn, 0);
 };
 
-const dateEmbauche = ({j,m,a,h,mn}) => validation(j,m,a,h,mn);
+const dateEmbauche = ({j,m,a,h,mn}) => validationDate(j,m,a,h,mn);
 
-const _dateEmbauche = (majorite, alea1, alea2, alea3) => {
-    let {m,j,a} = majorite;
-    let _j = 1 + alea1 % 31;
-    let _m = 1 + alea2 % 12;
-    let anneeActuelle = new Date().getFullYear();
-    let ecartAnnee = anneeActuelle - a;
-    let _a = a + (alea3 % ecartAnnee);
-    let bissextile = bissextile_p(_a);
-    _j = (_j > dureesMois[_m] ) ? 1  + j % dureesMois[m] : _j;
-    _j = ( _m === 2 && _j > 28) ? 29 : _j;
-    if(_a === a && _m < m){
-	console.log("date d'embauche antérieure à la majorité", majorite, _m, m);
-	_a = a;
-	_j = j;
-	_m = m;
-    }
-    let date =  `${_j}.${_m}.${_a}`;
-    return {j:_j, m:_m, a:_a, date:date};
-};
-
-const anciennete = embauche => {
-    let {m,j,a} = emabauche;
-    let _date = new Date();
-    //    let _a = _date
-
-
-};
-//Choix de ne pas de calculer la clef du numero de SS.
+//Choix volontaire de ne pas de calculer la clef du numero de SS.
 const numeroSecuriteSociale = (genre, dob, villeNaissance, ordre) => {
     //corse
     //corse 2a => 20 
@@ -88,7 +61,7 @@ const numeroSecuriteSociale = (genre, dob, villeNaissance, ordre) => {
     let mois = dob.getMonth()+1;
     let _dpt = villeNaissance.numeroDepartement;
     let dpt = (_dpt === '2a' || _dpt === '2b') ? '20' : _dpt.startsWith('97') ? '97' : _dpt;
-    let commune = villeNaissance.codeInsee;
+    let commune = villeNaissance.codeCommune;
     let ordreDeNaissance = String(ordre).padStart(3,'0');
     let clef = 'XX';
     return `${genre}.${annee}.${String(mois).padStart(2,'0')}.${String(dpt).padStart(2,'0')}.${String(commune).padStart(3,'0')}.${String(ordreDeNaissance).padStart(3,'0')}.${clef}`;
@@ -104,10 +77,4 @@ const numeroSecuriteSociale99 = (genre, dob, inseePays, ordre) => {
     
 };
 
-//module.exports = {jCalendaire, dureeJour, dureeSemaine, validationDate, triObjetsDate, dateEmbauche, dateMajorite, numeroSecuriteSociale, _dateEmbauche};
-
-
-//const dates = {jCalendaire, dureeJour, dureeSemaine, validationDate, triObjetsDate, dateEmbauche, dateMajorite, numeroSecuriteSociale, _dateEmbauche};
-
-//export default dates;
 export { dureeJour, dureeSemaine, triObjetsDate, jCalendaire, validationDate, dateMajorite, dateEmbauche, _dateEmbauche, numeroSecuriteSociale, numeroSecuriteSociale99};
