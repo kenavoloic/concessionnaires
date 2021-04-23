@@ -2,11 +2,13 @@ import codesInsee from './codesInsee.js';
 import {departementsRegions, listeRegions, regionsIsoNom, regionsNomIso} from './departementsRegions.js';
 import cpnd from './cogPostalNomDep.js';
 import insee from './inseeNom8k.js';
+import prepositions from './prepositions';
+//console.log(prepositions);
 /*
-const codesInsee = require('./codesInsee.js');
-const {departementsRegions, listeRegions, regionsIsoNom, regionsNomIso} = require('./departementsRegions.js');
-const cpnd = require('./cogPostalNomDep.js');
-const insee = require('./inseeNom8k.js');
+  const codesInsee = require('./codesInsee.js');
+  const {departementsRegions, listeRegions, regionsIsoNom, regionsNomIso} = require('./departementsRegions.js');
+  const cpnd = require('./cogPostalNomDep.js');
+  const insee = require('./inseeNom8k.js');
 */
 //console.log(listeRegions);
 
@@ -29,13 +31,18 @@ const troisLettres = envoi => ultramarins.includes(String(envoi).toLowerCase()) 
 const validationChoixDepartement = envoi =>  String(envoi).toLowerCase().padStart(2, '0').length === 2 ? deuxLettres(envoi) : troisLettres(envoi);
 
 const ville = codeInsee => {
+
     let choix = codesInsee.has(codeInsee) ? codesInsee.get(codeInsee) : bordeaux;
+    //console.log(choix, codeInsee, insee.get(choix));
     let nomCommune = insee.has(choix) ? insee.get(choix) : insee.get(bordeaux);
     let {postal, dep} = cpnd.has(choix) ? cpnd.get(choix) : cpnd.get(bordeaux);
     let departement = departementsRegions.has(dep) ? departementsRegions.get(dep) : departementsRegions.get("33");
     let {depNom, regionCode, regionNom, regionIso, regionAlphabetique} = departement;
     let codeCommune = String(choix).slice(2,5).padStart(3, '0');
-    return {nom: nomCommune, codeInsee:codeInsee, codeCommune:codeCommune, codePostal:postal, numeroDepartement:dep, nomDepartement: depNom, nomRegion: regionNom, isoRegion: regionIso, regionAlphabetique:regionAlphabetique, departements: listeRegions[regionIso]}; 
+    //let codeInseeEntier = `${String(dep)}${codeInsee}`;
+    let preposition = prepositions.has(choix) ? prepositions.get(choix).a : null;
+    //return {nom: nomCommune, codeInsee:codeInsee, codeCommune:codeCommune, codePostal:postal, numeroDepartement:dep, nomDepartement: depNom, nomRegion: regionNom, isoRegion: regionIso, regionAlphabetique:regionAlphabetique, departements: listeRegions[regionIso], a: preposition};
+    return {nom: nomCommune, codeInsee:choix, codeCommune:codeCommune, codePostal:postal, numeroDepartement:dep, nomDepartement: depNom, nomRegion: regionNom, isoRegion: regionIso, regionAlphabetique:regionAlphabetique, departements: listeRegions[regionIso], a: preposition}; 
 };
 
 const communesDepartementales = numeroDepartement => {

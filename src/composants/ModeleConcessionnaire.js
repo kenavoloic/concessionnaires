@@ -67,6 +67,8 @@ const ModeleConcessionnaire = function(faux){
 
     const getSeuilVentes = () => donnees('seuilVentes');
 
+    //console.log(faux.nomsVilles(3));
+
     const analyses = liste => {
 	let _occasions = liste.filter(x => x.km !== 0);
 	let _neufs = liste.filter(x => x.km === 0);
@@ -113,7 +115,7 @@ const ModeleConcessionnaire = function(faux){
 	let nom = faux.patronyme();
 	let raisonSociale = raisonSocialeConcessionnaire();
 	let adresse = faux.adresse();
-	let ville = faux.nomVille();	
+	let ville = faux.nomVille();
 	let {numeroDepartement, isoRegion} = ville;
 	let communesDepartementales = faux.communesDepartement(numeroDepartement);
 	let communesRegionales = faux.communesRegion(isoRegion);
@@ -243,7 +245,7 @@ const ModeleConcessionnaire = function(faux){
 	return stock;
     }
 
-    return {
+				return {
 	getConcessionnaire, getSeuilVentes
     };
 
