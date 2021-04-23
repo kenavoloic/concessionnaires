@@ -77,4 +77,4 @@ const numeroSecuriteSociale99 = (genre, dob, inseePays, ordre) => {
     
 };
 
-export { dureeJour, dureeSemaine, triObjetsDate, jCalendaire, validationDate, dateMajorite, dateEmbauche, _dateEmbauche, numeroSecuriteSociale, numeroSecuriteSociale99};
+export { dureeJour, dureeSemaine, triObjetsDate, jCalendaire, validationDate, dateMajorite, dateEmbauche,  numeroSecuriteSociale, numeroSecuriteSociale99};
