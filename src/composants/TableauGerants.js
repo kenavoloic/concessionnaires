@@ -74,6 +74,7 @@ const TableauGerants = ({gerants}) => {
     const miseEnForme = lignes => {
 	return lignes.map((ligne, index) => {
 	    let {lien, rang, entreprise, nom, prenom, departement, region, ville, total, neufs, occasions, mensuel} = ligne;
+	    departement = String(departement).padStart(2,'0');
 
 	    return (
 		<tr key={index}>
@@ -81,7 +82,7 @@ const TableauGerants = ({gerants}) => {
 		    <td className="nom">{nom}</td>
 		    <td className="prenom">{prenom}</td>
 		    <td className="total">{total}</td>
-		    <td className="mensuel">{(mensuel).toFixed(2)}</td>
+		    <td className="mensuel">{(mensuel).toFixed(2).replace('.',',')}</td>
 		    <td className="neufs">{neufs}</td>
 		    <td className="occasions">{occasions}</td>
 		    <td className="entreprise" onClick={(e) => historique.push(lien.url)}>{entreprise}</td>

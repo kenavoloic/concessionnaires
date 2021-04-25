@@ -26,8 +26,8 @@ const Synthese = ({donnees, index}) => {
 		</section>
 
 		<section className="nouveautes">
-		    {bilanVentes.analyse.nombreNeufs < 2 ? <div className="intitule">Neuf</div> : <div className="intitule">Neufs</div>}
-		    <div className="nombre">{bilanVentes.analyse.nombreNeufs}</div>
+		{bilanVentes.analyse.nombreNeufs < 2 ? <div className="intitule">Neuf</div> : <div className="intitule">Neufs</div>}
+		<div className="nombre">{bilanVentes.analyse.nombreNeufs}</div>
 		</section>
 		
 		<section className="occasions">
@@ -44,7 +44,7 @@ const Synthese = ({donnees, index}) => {
 
 		<section className="mensuel">
 		    <div className="intitule">Objectif</div>
-		    <div className={`nombre ${couleur}`}>{(bilanVentes.mensuel).toFixed(2)}</div>
+		    <div className={`nombre ${couleur}`}>{(bilanVentes.mensuel).toFixed(2).replace('.',',')}</div>
 		</section>
 	    </article>
 
@@ -72,16 +72,16 @@ const Synthese = ({donnees, index}) => {
 		{/*		
 				<section className="types">
 				{bilanStock.analyse.nombreTypes.length < 2 ? <div className="intitule">Type</div> : <div className="intitule">Types</div> }
-		    <div className="nombre">{bilanStock.analyse.nombreTypes.length}</div>
-		</section>
-		
-		<section className="motorisations">
-		    {bilanStock.analyse.nombreMotorisations.length < 2 ? <div className="intitule">Motorisation</div> : <div className="intitule">Motorisations</div> }
-		    <div  className="nombre">{bilanStock.analyse.nombreMotorisations.length}</div>
-		</section>
+				<div className="nombre">{bilanStock.analyse.nombreTypes.length}</div>
+				</section>
+				
+				<section className="motorisations">
+				{bilanStock.analyse.nombreMotorisations.length < 2 ? <div className="intitule">Motorisation</div> : <div className="intitule">Motorisations</div> }
+				<div  className="nombre">{bilanStock.analyse.nombreMotorisations.length}</div>
+				</section>
 		 */}
 	    </article>
-	
+	    
 	</article>
     );
 
